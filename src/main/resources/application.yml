@@ -1,0 +1,27 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: teamcle
+    password: Tricycle1!@
+    url: jdbc:mariadb://175.195.148.148:3306/ilinkcare
+    freemaker:
+    cache: false
+    devtools:
+      livereload:
+        enabled: true
+      restart:
+        enabled: true
+      thymeleaf:
+        cache: false
+
+
+mybatis:
+  type-aliases-package: com.example.ilinkcare.domain
+  mapper-locations: classpath:mybatis/**/*.xml
+
+#spring.mvc.static-path-pattern=/static/**
+#spring.resources.static-locations=classpath:/static/
+#spring.resources.add-mappings=true

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.ilinkcare.mapper.TeacherMapper">
+
+<!--    교사 계정생성-->
+    <insert id="insertTeacher" parameterType="com.example.ilinkcare.domain.Teacher">
+        insert into teacher (
+          teacher_id
+        , name
+        , password
+        , birth
+        , email
+        , address1
+        , address2
+        ,zip_cd
+        ,phone_num
+        ,gender
+        ,comments
+        ,created_dt
+        ,created_by
+        ,update_dt
+        ,update_by
+        ,status
+        ,posting_yn
+        ) values (
+          #{teacher_id}
+        , #{name}
+        , #{password}
+        , #{birth}
+        , #{created_by}
+        , #{email}
+        , #{address1}
+        , #{address2}
+        , #{zip_cd}
+        , #{gender}
+        , #{comments}
+        , #{created_dt}
+        , #{created_by}
+        , #{update_dt}
+        , #{update_by}
+        , #{status}
+        , #{posting_yn}
+        )
+    </insert>
+<!--    교사리스트 보기-->
+    <select id="findAllTeacher" resultType="Teacher">
+        SELECT *
+        FROM teacher
+    </select>
+    <!-- 교사 찾기-->
+    <select id="selectTeacher" parameterType="int" resultType="Teacher">
+        SELECT *
+        FROM teacher
+        WHERE teacher_no = #{teacher_no}
+    </select>
+
+<!--    교사 리뷰보기-->
+    <select id="selectReview" parameterType="int" resultType="CommentDto">
+        SELECT co.comment_no, content, u.user_name, co.created_dt
+        FROM comment AS co
+        INNER JOIN `user` AS u on co.user_no = u.user_no
+        WHERE teacher_no = #{teacher_no}
+    </select>
+
+
+
+</mapper>

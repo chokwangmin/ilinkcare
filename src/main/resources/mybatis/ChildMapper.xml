@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.ilinkcare.mapper.ChildMapper">
+    <select id="selectChild" parameterType="int" resultType="Child">
+        SELECT *
+        FROM child
+        WHERE child_no = #{child_no}
+    </select>
+
+    <select id="findAll" resultType="Child">
+        SELECT *
+        FROM child
+    </select>
+
+    <insert id="insertBaby" parameterType="Child">
+        INSERT INTO CHILD ( user_no
+                          , name
+                          , birth
+                          , gender
+                          , created_dt
+                          , created_by
+                          , update_dt
+                          , update_by
+        ) values (
+                            #{user_no}
+                          , #{name}
+                          , #{birth}
+                          , #{gender}
+                          , #{created_dt}
+                          , #{created_by}
+                          , #{update_dt}
+                          , #{update_by}
+        )
+    </insert>
+</mapper>
