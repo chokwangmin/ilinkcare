@@ -31,13 +31,11 @@
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-bottom mb-5 mb-md-0" src="/img/chopa.jpg" alt="..." /></div>
                     <div class="col-md-6">
-                        <div class="small mb-1"><a th:text="${teacher.name}"></a></div>
-                        <h1 class="display-5 fw-bolder"><a th:text="${teacher.address1}"></a></h1>
-                        <div class="fs-5 mb-5">
-                            <span class="text-decoration-line-through">111</span>
-                            <span>ㅇㅇㅇ</span>
-                        </div>
-                        <p class="lead" th:text="${teacher.comments}"></p>
+                        <div class="large mb-3"><a class="display-5 fw-bolder" th:text="${teacher.name}"></a></div>
+                        <div class="display-8 fw-bolder mb-1">프로그램</div>
+                        <p class="mb-4" th:text="${teacher.comments}"></p>
+                        <div class="display-8 fw-bolder mb-1">신청가능 지역</div>
+                        <h1 class="display-7 fw-bolder mb-3"><span th:text="${teacher.address1}"></span></h1>
                         <div class="d-flex">
                             <!--<input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />-->
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Data
 @ToString
 public class Teacher {
-
+    private Long teacher_no;
     private String teacher_id;
     private String name;
     private String password;

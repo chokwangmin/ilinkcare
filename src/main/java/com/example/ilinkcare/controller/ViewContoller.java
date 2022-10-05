@@ -31,12 +31,12 @@ public class ViewContoller {
 
         return "login";
     }
-    /*마이페이지*/
-    @GetMapping("/mypage")
-    public String mypage(){
-
-        return "mypage";
-    }
+//    /*마이페이지*/
+//    @GetMapping("/mypage")
+//    public String mypage(){
+//
+//        return "mypage";
+//    }
 
     /*프로필*/
     @GetMapping("/profil")
