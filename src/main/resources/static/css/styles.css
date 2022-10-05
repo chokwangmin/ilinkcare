@@ -9762,6 +9762,10 @@ textarea.form-control-lg {
       margin-left: 40rem !important;
   }
 
+  .ms-lg-7 {
+        margin-left: 20px !important;
+  }
+
   .ms-lg-auto {
     margin-left: auto !important;
   }
@@ -9824,6 +9828,11 @@ textarea.form-control-lg {
     padding-right: 29rem !important;
     padding-left: 30rem !important;
   }
+
+    .px-lg-7 {
+      padding-right: 1.5rem !important;
+      padding-left: 500px !important;
+    }
 
 
   .py-lg-0 {

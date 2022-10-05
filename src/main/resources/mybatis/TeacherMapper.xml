@@ -4,7 +4,7 @@
 
 <!--    교사 계정생성-->
     <insert id="insertTeacher" parameterType="com.example.ilinkcare.domain.Teacher">
-        insert into teacher (
+        INSERT INTO teacher (
           teacher_id
         , name
         , password
@@ -22,7 +22,7 @@
         ,update_by
         ,status
         ,posting_yn
-        ) values (
+        ) VALUES (
           #{teacher_id}
         , #{name}
         , #{password}
@@ -58,10 +58,22 @@
     <select id="selectReview" parameterType="int" resultType="CommentDto">
         SELECT co.comment_no, content, u.user_name, co.created_dt
         FROM comment AS co
-        INNER JOIN `user` AS u on co.user_no = u.user_no
+        INNER JOIN member AS u on co.user_no = u.user_no
         WHERE teacher_no = #{teacher_no}
     </select>
 
+<!--관심교사 등록-->
+    <select id="insertWishlist" parameterType="com.example.ilinkcare.domain.Wishlist">
+        INSERT INTO wishlist(
+        teacher_no,
+        user_no,
+        created_dt
+        ) VALUES (
+        #{teacher_no},
+        #{user_no},
+        #{created_dt}
+        )
+    </select>
 
 
 </mapper>

@@ -2,6 +2,7 @@ package com.example.ilinkcare.service;
 
 import com.example.ilinkcare.domain.CommentDto;
 import com.example.ilinkcare.domain.Teacher;
+import com.example.ilinkcare.domain.Wishlist;
 
 import java.util.List;
 
@@ -16,4 +17,9 @@ public interface TeacherService {
     void joinTeacher(Teacher teacher);
 
     //List<Teacher> GetTeachersByRegion( );
+
+    void CreateWishlist(Wishlist wishlist);
 }
+
+
+

@@ -2,6 +2,7 @@ package com.example.ilinkcare.service;
 
 import com.example.ilinkcare.domain.Teacher;
 import com.example.ilinkcare.domain.CommentDto;
+import com.example.ilinkcare.domain.Wishlist;
 import com.example.ilinkcare.mapper.TeacherMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ public class TeacherServiceImp implements TeacherService {
 
     @Autowired
     private TeacherMapper teacherMapper;
+
 
     // 교사전체 리스트 가져오기
     public List<Teacher> getTeacherList(){
@@ -44,5 +46,14 @@ public class TeacherServiceImp implements TeacherService {
     // 교사 검색 가져오기
 
     // 등록된 교사 리스트
+
+    //관심교사 등록
+
+    public void CreateWishlist(Wishlist wishlist){
+        teacherMapper.insertWishlist(wishlist);
+
+    }
+
+
 
 }

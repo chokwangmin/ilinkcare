@@ -17,16 +17,17 @@
     <script type="text/javascript" src="js/login.js"></script>
     <script>
     function baby() {
+        alert(1);
+
         $.ajax({
             url : "childinfo",
             success : function(result) {
                 console.log("성공");
                 console.log(result);
-                $(".shopping-cart .container").empty();
-                $(".shopping-cart .container").html(result);
+                //$("#message1").html(result);
             },
             error:function(request,status,error){
-                console.log("실패");
+                console.log("성공");
                 console.log(request);
             }
         });

@@ -1,10 +1,7 @@
 package com.example.ilinkcare.mapper;
 
 
-import com.example.ilinkcare.domain.Child;
-import com.example.ilinkcare.domain.CommentDto;
-import com.example.ilinkcare.domain.Review;
-import com.example.ilinkcare.domain.Teacher;
+import com.example.ilinkcare.domain.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -22,6 +19,8 @@ public interface TeacherMapper {
 
     List<CommentDto> selectReview(int teacher_no);
 
-    // 교사사입
+    // 관심교사 등록
+    void insertWishlist(Wishlist wishlist);
+
 
 }

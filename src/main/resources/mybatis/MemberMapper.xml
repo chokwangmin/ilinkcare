@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.ilinkcare.mapper.MemberMapper">
+
+    <!--    고객 계정생성-->
+    <insert id="insertMember" parameterType="com.example.ilinkcare.domain.Member">
+        INSERT INTO member ( user_id
+                            ,user_name
+                            ,password
+                            ,birth
+                            ,email
+                            ,address1
+                            ,address2
+                            ,zip_cd
+                            ,phone_num
+                            ,gender
+                            ,created_dt
+                            ,created_by
+                            ,update_dt
+                            ,update_by
+        ) VALUES (
+                             #{user_id}
+                            ,#{user_name}
+                            ,#{password}
+                            ,#{birth}
+                            ,#{email}
+                            ,#{address1}
+                            ,#{address2}
+                            ,#{zip_cd}
+                            ,#{phone_num}
+                            ,#{gender}
+                            ,#{created_dt}
+                            ,#{created_by}
+                            ,#{update_dt}
+                            ,#{update_by}
+                )
+    </insert>
+
+</mapper>

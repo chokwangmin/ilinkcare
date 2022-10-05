@@ -65,5 +65,11 @@ public class ViewContoller {
         return "userupdate";
     }
 
+    @GetMapping("/wishlist")
+    public String WishList(){
+
+        return "wishlist";
+    }
+
 
 }
