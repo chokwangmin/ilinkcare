@@ -1,14 +1,12 @@
 package com.example.ilinkcare.service;
 
 import com.example.ilinkcare.domain.Order;
-import com.example.ilinkcare.domain.Teacher;
-
+import org.springframework.context.annotation.Profile;
 
 import java.util.List;
 
-public interface OrderSevice {
-
-    List<Order> getOrderList();
+public interface ProfileService {
+    List<Profile> getOrderList();
 
     Order getOrder(int order_no);
 }

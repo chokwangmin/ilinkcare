@@ -6,11 +6,12 @@ import com.example.ilinkcare.service.MemberServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-@RequestMapping
+@RequestMapping("/member")
 @Controller
 public class MemberController {
 
@@ -23,6 +24,14 @@ public class MemberController {
         memberService.MemberJoin(member);
 
         return "join";
+    }
+
+    @PutMapping("/update")
+    public String MemberUpdate(Member member){
+
+        memberService.MemberUpdate(member);
+
+        return "";
     }
 
 }

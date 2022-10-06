@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -13,6 +13,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <script type="text/javascript" src="js/login.js"></script>
+
 </head>
 <body>
 <div class="row" th:fragment="orderFragment">
@@ -21,6 +22,7 @@
             <table>
                 <thead>
                 <tr>
+                    <th>주문번호</th>
                     <th>프로필</th>
                     <th class="p-name">교육프로그램</th>
                     <th>아이 이름</th>
@@ -32,17 +34,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="order : ${orderlist}">
-                    <td th:text="${order.name}"></td>
-                <tr>
+
+                <tr th:each="order : ${orderList}">
+                    <td class="p-price first-row" th:text="${order.order_no}"></td>
                     <td class="cart-pic first-row"><img src="#!" alt=""></td>
-                    <td class="cart-title first-row">
-                        <h5 >교육 프로그램명1</h5>
+                    <td class="cart-title first-row" th:text="${order.comments}">
+                        <h5></h5>
                     </td>
-                    <td class="p-price first-row">123</td>
-                    <td class="total-price first-row">11111</td>
-                    <td class="total-price first-row">11111</td>
-                    <td class="total-price first-row">11111</td>
+                    <td class="p-price first-row" th:text="${order.comments}"></td>
+                    <td class="total-price first-row" th:text="${order.comments}">11111</td>
+                    <td class="total-price first-row" th:text="${order.comments}">11111</td>
+                    <td class="total-price first-row" th:text="${order.comments}">11111</td>
                     <td class="total-price first-row" ><a id="reviewcreat" href="#!">리뷰작성하기</a></td>
                     <td class="close-td first-row"><i class="ti-close"></i></td>
                 </tr>
@@ -53,5 +55,4 @@
     </div>
 </div>
 </body>
-</th:block>
 </html>

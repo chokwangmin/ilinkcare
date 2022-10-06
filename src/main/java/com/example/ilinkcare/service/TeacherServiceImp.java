@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class TeacherServiceImp implements TeacherService {
@@ -17,8 +18,13 @@ public class TeacherServiceImp implements TeacherService {
 
 
     // 교사전체 리스트 가져오기
-    public List<Teacher> getTeacherList(){
-        return teacherMapper.findAllTeacher();
+    public List<Teacher> getTeacherList(Map<String, Object> param){
+        return teacherMapper.findAllTeacher(param);
+    }
+
+    @Override
+    public int getTeacherListCount(Map<String, Object> param) {
+        return teacherMapper.findAllTeacherCount(param);
     }
 
     //교사 찾기
@@ -53,6 +59,8 @@ public class TeacherServiceImp implements TeacherService {
         teacherMapper.insertWishlist(wishlist);
 
     }
+
+
 
 
 

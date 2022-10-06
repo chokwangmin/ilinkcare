@@ -35,5 +35,23 @@
                             ,#{update_by}
                 )
     </insert>
+    <update id="updateMember" parameterType="com.example.ilinkcare.domain.Member">
+         UPDATE member
+                    SET
+                       user_name = #{user_name}
+                     ,password = #{password}
+                     ,birth = #{birth}
+                     ,email = #{email}
+                     ,address1 = #{address1}
+                     ,address2 = #{address2}
+                     ,zip_cd = #{zip_cd}
+                     ,phone_num = #{phone_num}
+                     ,gender = #{gender}
+                     ,created_dt = #{created_dt}
+                     ,created_by = #{created_by}
+                     ,update_dt = #{update_dt}
+                     ,update_by = #{update_by}
+                    WHERE user_id  = #{user_id}
+    </update>
 
 </mapper>

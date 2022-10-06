@@ -12,8 +12,8 @@
         FROM child
     </select>
 
-    <insert id="insertBaby" parameterType="Child">
-        INSERT INTO CHILD ( user_no
+    <insert id="insertChild" parameterType="Child">
+        INSERT INTO child ( user_no
                           , name
                           , birth
                           , gender

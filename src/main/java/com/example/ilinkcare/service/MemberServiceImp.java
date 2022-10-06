@@ -16,5 +16,9 @@ public class MemberServiceImp implements MemberService{
         memberMapper.insertMember(member);
     }
 
+    public void MemberUpdate(Member member){
+        memberMapper.updateMember(member);
+    }
+
 
 }

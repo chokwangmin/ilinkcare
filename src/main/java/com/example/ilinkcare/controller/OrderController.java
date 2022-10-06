@@ -19,10 +19,10 @@ public class OrderController {
 
     //주문리스트
     @GetMapping("/orderlist")
-    public String order(Model model){
+    public String Order(Model model){
         List<Order> orderList =  orderService.getOrderList();
-        model.addAttribute("orders", orderList );
-        return "";
+        model.addAttribute("orderList", orderList );
+        return "orderlist";
     }
 
 }

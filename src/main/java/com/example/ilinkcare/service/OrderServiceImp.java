@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class OrderServiceImp implements OrderSevice {
+public class OrderServiceImp implements OrderService {
 
     @Autowired
     private OrderMapper orderMapper;
