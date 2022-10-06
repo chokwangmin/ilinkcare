@@ -12,7 +12,7 @@
         FROM child
     </select>
 
-    <insert id="insertChild" parameterType="Child">
+    <insert id="insertChild" parameterType="com.example.ilinkcare.domain.Child">
         INSERT INTO child ( user_no
                           , name
                           , birth

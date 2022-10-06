@@ -13,12 +13,12 @@ public class ViewContoller {
     ChildMapper childMapper;
     /*메인페이지*/
 
-    /*아이정보*/
-    @GetMapping("/childinfo")
-    public String childinfo(){
-
-        return "childinfo";
-    }
+//    /*아이정보*/
+//    @GetMapping("/childinfo")
+//    public String childinfo(){
+//
+//        return "childinfo";
+//    }
     /*회원가입*/
     @GetMapping("/join")
     public String join(){

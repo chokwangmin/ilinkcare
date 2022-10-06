@@ -17,13 +17,13 @@ public class ChildController {
     private ChildService childService;
 
     @PostMapping("/childinfo") //localhost:8088/api/child/post
-    public Child CilidCreat(Child child){
+    public String ChildCreate(@RequestBody Child child){
         // 마이바티스가 아니고 insert
 //        childMapper.insertBaby(child);
         // 마이바티스 연동해서 insert
         childService.ChildCreate(child);
 
-        return child;
+        return "";
 
     }
 //    @GetMapping("/api/child") //localhost:8088/api/child
