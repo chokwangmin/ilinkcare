@@ -58,7 +58,7 @@
         SELECT
               user_name as username
             , password  as password
-            , user_id   as id
+            , user_id   as userid
         FROM
             member
         WHERE
