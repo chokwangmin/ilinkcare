@@ -1,7 +1,10 @@
 package com.example.ilinkcare.mapper;
 
 import com.example.ilinkcare.domain.Member;
+import com.example.ilinkcare.domain.User;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.Map;
 
 @Mapper
 public interface MemberMapper {
@@ -9,4 +12,6 @@ public interface MemberMapper {
     void insertMember(Member member);
 
     void updateMember(Member member);
+
+    User findByUsername(Map<String, Object> param);
 }
