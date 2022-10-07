@@ -35,7 +35,7 @@ $(function(){
   });
 
     $("#order").click(function(){
-        $("#modal2").fadeIn();
+        $("#modal").fadeIn();
     });
 
   //달력
