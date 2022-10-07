@@ -21,6 +21,11 @@ public class MemberServiceImp implements MemberService, UserDetailsService {
 
     public String MemberJoin(Member member){
         String rtnVal = "";
+
+        String Password = member.getPassword();
+        Password = new BCryptPasswordEncoder().encode(Password);
+        member.setPassword(Password);
+
         // 회원가입 중복 체크 필요
         int dupCnt = memberMapper.dupUserId(member);
         if(dupCnt > 0)
