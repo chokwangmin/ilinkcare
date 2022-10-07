@@ -14,7 +14,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/join.css" rel="stylesheet" />
-    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/join.js"></script>
 </head>
 <body>
 <!-- Navigation-->
@@ -43,7 +43,7 @@
 
 
 <div class="wrap wd668">
-    <form class="container" method="post" action="/join">
+    <form class="container" id="memRegist" method="post" action="/member/join">
         <div class="form_txtInput">
                 <h2 class="sub_tit_txt">회원가입</h2>
                 <p class="exTxt">회원가입시 이메일 인증을 반드시 진행하셔야 합니다.</p>
@@ -64,33 +64,32 @@
                         </tr>
                         <tr>
                             <th><span>비밀번호</span></th>
-                            <td><input type="text" placeholder="비밀번호를 입력해주세요." name="password"></td>
+                            <td>
+                                <input type="password" placeholder="비밀번호를 입력해주세요" name="password">
+                            </td>
+
                         </tr>
-    <!--                    <tr>-->
-    <!--                        <th><span>비밀번호 확인</span></th>-->
-    <!--                        <td><input type="text" placeholder="비밀번호를 확인하세요" name="password"></td>-->
-    <!--                    </tr>-->
                         <tr>
                             <th><span>주소</span></th>
-                            <td><input type="text" id="address_kakao" name="address1" readonly /></td>
+                            <td><input type="text" id="address_kakao" name="address_detail" readonly /></td>
                         </tr>
-                        <tr class="email">
-                            <th><span>이메일</span></th>
-                            <td>
-                                <input type="text"  class="email" placeholder=""><span class="mar10">@</span>
-                                <input type="text"  class="email email2" placeholder="">
-                                <a href="javascript:;" class="btn_confirm">인증번호 발송</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><span>인증번호 확인</span></th>
-                            <td><input type="text" class="send_number" placeholder="10:00">
-                                <a href="javascript:;" class="btn_confirm">인증번호 발송</a>
-                            </td>
-                        </tr>
+<!--                        <tr class="email">-->
+<!--                            <th><span>이메일</span></th>-->
+<!--                            <td>-->
+<!--                                <input type="text"  class="email" placeholder=""><span class="mar10">@</span>-->
+<!--                                <input type="text"  class="email email2" placeholder="">-->
+<!--                                <a href="javascript:;" class="btn_confirm">인증번호 발송</a>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th><span>인증번호 확인</span></th>-->
+<!--                            <td><input type="text" class="send_number" placeholder="10:00">-->
+<!--                                <a href="javascript:;" class="btn_confirm">인증번호 발송</a>-->
+<!--                            </td>-->
+<!--                        </tr>-->
                         <tr>
                             <th><span>휴대폰 번호</span></th>
-                            <td><input type="text" placeholder="ID 를 입력하세요."></td>
+                            <td><input type="text" placeholder="휴대폰번호를 입력해주세요" name="phone_num" ></td>
                         </tr>
                         <tr >
                             <td><input type="hidden" name="created_dt"></td>
@@ -117,7 +116,8 @@
                     </div>
                 </div>
                 <div class="btn_wrap">
-                    <button type="submit">가입하기</button>
+<!--                    <button type="submit">가입하기</button>-->
+                    <a href="javascript:;" onclick="submitMemRegist();">가입하기</a>
                 </div>
         </div> <!-- form_txtInput E -->
             </form>
@@ -136,18 +136,5 @@
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-window.onload = function(){
-    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
-        //카카오 지도 발생
-        new daum.Postcode({
-            oncomplete: function(data) { //선택시 입력값 세팅
-                document.getElementById("address_kakao").value = data.address; // 주소 넣기
-                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
-            }
-        }).open();
-    });
-}
-</script>
 </body>
 </html>

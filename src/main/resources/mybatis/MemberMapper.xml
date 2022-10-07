@@ -35,6 +35,15 @@
                             ,#{update_by}
                 )
     </insert>
+
+    <select id="dupUserId" parameterType="com.example.ilinkcare.domain.Member" resultType="int">
+        select *
+        from member
+        where user_id = #{user_id}
+        limit 1
+    </select>
+
+
     <update id="updateMember" parameterType="com.example.ilinkcare.domain.Member">
          UPDATE member
                     SET

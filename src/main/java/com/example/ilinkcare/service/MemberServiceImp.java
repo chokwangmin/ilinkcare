@@ -12,8 +12,20 @@ public class MemberServiceImp implements MemberService{
     @Autowired
     private MemberMapper memberMapper;
 
-    public void MemberJoin(Member member){
+    public String MemberJoin(Member member){
+        String rtnVal = "";
+        // 회원가입 중복 체크 필요
+        int dupCnt = memberMapper.dupUserId(member);
+        if(dupCnt > 0)
+        {
+            // 아이디 중복있음
+             rtnVal = "회원가입 아이디가 중복되었습니다";
+             return rtnVal;
+        }
+
         memberMapper.insertMember(member);
+
+        return rtnVal;
     }
 
     public void MemberUpdate(Member member){
