@@ -21,8 +21,6 @@ public interface ChildMapper {
     //@Select("SELECT * FROM child")
     void insertChild(Child child);
 
-    List<Child> findAll();
-
     //@Select("SELECT * FROM child WHERE child_no = #{child_no}")
-    Child selectChild(int child_no);
+    List<Child> selectChild(int child_no);
 }

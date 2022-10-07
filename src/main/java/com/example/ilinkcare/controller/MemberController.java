@@ -5,10 +5,7 @@ import com.example.ilinkcare.service.MemberService;
 import com.example.ilinkcare.service.MemberServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 
 @RequestMapping("/member")
@@ -20,10 +17,10 @@ public class MemberController {
 
     @PostMapping("/join")
     public String MemberJoin(Member member){
+        String RtnVal = "";
+        RtnVal = memberService.MemberJoin(member);
 
-        memberService.MemberJoin(member);
-
-        return "join";
+        return "redirect:/login";
     }
 
     @PutMapping("/update")

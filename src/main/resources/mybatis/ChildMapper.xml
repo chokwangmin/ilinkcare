@@ -4,7 +4,7 @@
     <select id="selectChild" parameterType="int" resultType="Child">
         SELECT *
         FROM child
-        WHERE child_no = #{child_no}
+        WHERE user_no = #{parentNo}
     </select>
 
     <select id="findAll" resultType="Child">

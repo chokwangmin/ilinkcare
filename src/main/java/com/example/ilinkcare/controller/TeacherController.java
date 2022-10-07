@@ -2,10 +2,12 @@ package com.example.ilinkcare.controller;
 
 
 import com.example.ilinkcare.domain.CommentDto;
+import com.example.ilinkcare.domain.Member;
 import com.example.ilinkcare.domain.Teacher;
 import com.example.ilinkcare.domain.Wishlist;
 import com.example.ilinkcare.service.TeacherServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -34,7 +36,7 @@ public class TeacherController {
 
     //메인
     @GetMapping("/index") //index?page=1,
-    public String main(ModelMap modelMap, @RequestParam(value = "page" , required = false) String page){
+    public String main(ModelMap modelMap, @RequestParam(value = "page" , required = false) String page, @AuthenticationPrincipal Member member){
         // 현재 페이지 번호
         int pageNo = page == null ? 1 : Integer.parseInt(page);
         // 페이징 LIMIT 시작 위치 계산

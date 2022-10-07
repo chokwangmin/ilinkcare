@@ -1,10 +1,32 @@
-<div class="myp_contents_wrap py-6">
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Item - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/login.js"></script>
+
+</head>
+<body>
+<div class="myp_contents_wrap py-6" th:fragment="childinfoFragment">
     <h4 class="cont_tit">아이정보 관리</h4>
+<!--    <tr th:each="child : ${childinfo}">-->
+<!--        <td class="p-price first-row" th:text="${child.name}"></td>-->
+<!--    </tr>-->
+
     <div class="myp_cont con_mem_info_admin">
         <!-- ngRepeat: item in childrenInfo -->
         <div  class="sub_cont ng-scope">
             <div class="sub_tit_wrap">
-                <h5 class="tit__sub ng-binding">아이정보 1</h5>
+                <h5 class="tit__sub ng-binding">아이정보 2</h5>
                 <div class="btn_area lv2">
                     <button ng-click="deleteKid(item.kidsNo)" type="button" class="btn_tx_g ic_r">삭제</button>
                 </div>
@@ -16,12 +38,12 @@
                     <col style="width:auto;">
                 </colgroup>
                 <form  method="post" action="/childinfo">
-                <tbody>
+                <tbody th:each="child : ${childinfo}">
                 <tr>
                     <th>이름</th>
                     <td>
                             <span class="it_basic">
-                                <input type="text" id="kidNm0" name="name" value="" placeholder="한글, 영문 2~12자" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+                                <input type="text" id="kidNm0" name="name" th:value="${child.name}" placeholder="한글, 영문 2~12자" class="ng-pristine ng-untouched ng-valid ng-not-empty">
                             </span>
                     </td>
                 </tr>
@@ -79,3 +101,5 @@
 
        </form>
     </div>
+</div>
+</body>

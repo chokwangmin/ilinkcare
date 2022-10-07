@@ -13,7 +13,7 @@ public class ViewContoller {
     ChildMapper childMapper;
     /*메인페이지*/
 
-//    /*아이정보*/
+    /*아이정보*/
 //    @GetMapping("/childinfo")
 //    public String childinfo(){
 //
@@ -56,7 +56,7 @@ public class ViewContoller {
     @GetMapping("/profileview") //localhost:8088/api/child
     public String read(Model model){
 
-        model.addAttribute("childList", childMapper.findAll());
+//        model.addAttribute("childList", childMapper.findAll());
         return "profileview";
     }
 
