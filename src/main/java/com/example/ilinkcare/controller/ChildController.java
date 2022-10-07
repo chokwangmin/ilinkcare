@@ -1,10 +1,12 @@
 package com.example.ilinkcare.controller;
 
 import com.example.ilinkcare.domain.Child;
+import com.example.ilinkcare.domain.Order;
 import com.example.ilinkcare.mapper.ChildMapper;
 import com.example.ilinkcare.service.ChildService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +28,15 @@ public class ChildController {
         return "";
 
     }
+    @GetMapping("/childinfo")
+    public String childinfo(Model model){
+
+        List<Child> ChildInfo = childService.ChildInfo(12);
+        model.addAttribute("childinfo", ChildInfo );
+        return "childinfo";
+
+    }
+
 //    @GetMapping("/api/child") //localhost:8088/api/child
 //    public List<Child> read(){
 //        List<Child> child = childService.findAll();
