@@ -13,7 +13,13 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
-    <th:block th:fragment="setProfielview(profilview)">
+    <div id="modal2" class="modal">
+        <div class="modal_content" title="클릭하면 창이 닫힙니다.">
+<!--           <a class="modal-close"><img src="img/x-circle-fill.svg" width="50px"><a/>-->
+<!--            <th:block th:replace="~{/order :: setOrder(~{this::order} )}"></th:block>-->
+        </div>
+    </div>
+<!--    <th:block th:fragment="setProfielview(profilview)">-->
     <body>
     <tr th:each="child : ${childList}">
         <td th:text="${child.name}"></td>
@@ -38,9 +44,8 @@
                         <h1 class="display-7 fw-bolder mb-3"><span th:text="${teacher.address1}"></span></h1>
                         <div class="d-flex">
                             <!--<input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />-->
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                                <i class=" me-1"></i>
-                                교육신청하기
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" id="order">
+                                <i class=" me-1" ></i>교육신청하기
                             </button>
                         </div>
                     </div>
@@ -80,5 +85,5 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
-    </th:block>
+<!--    </th:block>-->
 </html>

@@ -37,6 +37,14 @@ public class ViewContoller {
 
         return "mypage";
     }
+    /* 교육(교사신청)*/
+    @GetMapping("/order")
+    public String Order(){
+
+        return "order";
+    }
+
+
 
     /*프로필*/
     @GetMapping("/profile")
