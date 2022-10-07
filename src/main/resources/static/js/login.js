@@ -34,6 +34,21 @@ $(function(){
       $("#modal2").fadeIn();
   });
 
+    $("#order").click(function(){
+        $("#modal").fadeIn();
+    });
+
+  //달력
+
+   $(document).ready(function(){
+
+       $('.input-daterange').datepicker({
+           format: 'yyyy-mm-dd',
+           autoclose: true
+       });
+
+       });
+
 
 
 //  $("#wishlist").click(function(){

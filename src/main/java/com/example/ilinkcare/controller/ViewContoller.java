@@ -37,6 +37,14 @@ public class ViewContoller {
 
         return "mypage";
     }
+    /* 교육(교사신청)*/
+    @GetMapping("/order")
+    public String Order(){
+
+        return "order";
+    }
+
+
 
     /*프로필*/
     @GetMapping("/profile")
@@ -52,11 +60,11 @@ public class ViewContoller {
         return "profileview";
     }
 
-    @GetMapping("/review")
-    public String review(){
-
-        return "review";
-    }
+//    @GetMapping("/reviewlist")
+//    public String reviewlist(){
+//
+//        return "reviewlist";
+//    }
 
 
     @GetMapping("/memberupdate")

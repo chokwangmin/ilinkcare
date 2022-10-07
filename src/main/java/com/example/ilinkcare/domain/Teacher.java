@@ -26,5 +26,7 @@ public class Teacher {
     private String update_by;
     private String status;
     private String posting_yn;
+    private String filename;
+    private String filepath;
 
 }

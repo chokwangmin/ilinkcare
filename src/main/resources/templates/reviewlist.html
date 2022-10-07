@@ -16,7 +16,7 @@
 
 </head>
 <body>
-<div class="row" th:fragment="orderFragment">
+<div class="row">
     <div class="col-lg-12">
         <div class="cart-table">
             <table>
@@ -24,23 +24,23 @@
                 <tr>
                     <th>주문번호</th>
                     <th class="p-name">교육프로그램</th>
-                    <th>아이 이름</th>
+                    <th>내용</th>
                     <th>교사명</th>
                     <th>교육시작일</th>
-                    <th>교육종료일</th>
+                    <th>등록일</th>
                     <th>리뷰</th>
                     <th><i class="ti-close"></i></th>
                 </tr>
                 </thead>
                 <tbody>
 
-                <tr th:each="order : ${orderList}">
-                    <td class="p-price first-row" th:text="${order.order_no}"></td>
-                    <td class="cart-title first-row" th:text="${order.comments}">
-                    <td class="p-price first-row" th:text="${order.comments}"></td>
-                    <td class="total-price first-row" th:text="${order.comments}">11111</td>
-                    <td class="total-price first-row" th:text="${order.comments}">11111</td>
-                    <td class="total-price first-row" th:text="${order.comments}">11111</td>
+                <tr> <!--th:each="order : ${orderList}"-->
+                    <td class="p-price first-row"></td>
+                    <td class="cart-title first-row" >
+                    <td class="p-price first-row" ></td>
+                    <td class="total-price first-row" >11111</td>
+                    <td class="total-price first-row" >11111</td>
+                    <td class="total-price first-row" >11111</td>
                     <td class="total-price first-row" ><a id="reviewcreat" href="#!">리뷰작성하기</a></td>
                     <td class="close-td first-row"><i class="ti-close"></i></td>
                 </tr>

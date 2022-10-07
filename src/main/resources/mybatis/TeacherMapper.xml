@@ -22,6 +22,9 @@
         ,update_by
         ,status
         ,posting_yn
+        ,review_yn
+        ,filename
+        ,filepath
         ) VALUES (
           #{teacher_id}
         , #{name}
@@ -40,6 +43,9 @@
         , #{update_by}
         , #{status}
         , #{posting_yn}
+        , #{review_yn}
+        , #{filename}
+        , #{filepath}
         )
     </insert>
 <!--    교사리스트 보기-->
