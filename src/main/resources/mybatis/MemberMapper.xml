@@ -63,4 +63,14 @@
                     WHERE user_id  = #{user_id}
     </update>
 
+    <select id="findByUsername" resultType="com.example.ilinkcare.domain.User" parameterType="java.util.Map">
+        SELECT
+              user_name as username
+            , password  as password
+            , user_id   as userid
+        FROM
+            member
+        WHERE
+            user_id = #{userId}
+    </select>
 </mapper>
