@@ -1,6 +1,7 @@
 package com.example.ilinkcare.service;
 
 import com.example.ilinkcare.domain.Member;
+import com.example.ilinkcare.domain.MemberSecurity;
 import com.example.ilinkcare.domain.User;
 import com.example.ilinkcare.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,6 @@ public class MemberServiceImp implements MemberService, UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("해당 사용자를 찾을수 없습니다.:" + userId);
         }
-        return new Member(user);
+        return new MemberSecurity(user);
     }
 }
