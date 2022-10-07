@@ -7,4 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MemberMapper {
     // 고객 회원가입
     void insertMember(Member member);
+
+    void updateMember(Member member);
 }

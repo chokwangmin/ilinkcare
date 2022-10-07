@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -14,15 +14,16 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
         <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/test.js"></script>
 
 
     </head>
     <body>
-<!--    <div class="modal">-->
-<!--        <div class="modal_content" title="클릭하면 창이 닫힙니다.">-->
-<!--            <th:block th:replace="~{/profilview :: setProfilview(~{this::profilview} )}"></th:block>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="modal">
+        <div class="modal_content" title="클릭하면 창이 닫힙니다.">
+<!--            <th:block th:replace="~{/teacher :: setProfilelview(~{this::teacher} )}"></th:block>-->
+        </div>
+    </div>
 
 
         <!-- Navigation-->
@@ -81,12 +82,13 @@
                             <!-- Sale badge-->
                             <!--                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>-->
                             <!-- Product image-->
-                            <a th:href="@{/teacher/{id}(id=${teacher.teacher_no})}"><img class="card-img-top" src="img/chopa.jpg" alt="..." /></a>
+                            <a id="popUp" th:value="${teacher.teacher_no}" th:onclick="|javascript:showPopUp('${teacher.teacher_no}')|"><img class="card-img-top" src="img/chopa.jpg" alt="..." /></a>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">지역</h5>
+                                    <a onclick="showPopUp()">123123</a>
                                     <!-- Product reviews-->
 <!--                                    <div class="d-flex justify-content-center small text-warning mb-2">-->
 <!--                                        <div class="bi-star-fill"></div>-->
@@ -106,7 +108,27 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" th:if="${existPrevPage}">
+                            <a class="page-link" th:href="@{/index(page=1)}" tabindex="-1">처음으로</a>
+                        </li>
+                        <li class="page-item" th:if="${existPrevPage}">
+                            <a class="page-link" th:href="@{/index(page=${firstPageFist})}" tabindex="-1">이전</a>
+                        </li>
+                        <li class="page-item" th:each="page:${#numbers.sequence(startPage, endPage)}" th:classappend="${page == nowPage} ? 'active'">
+                            <a class="page-link" th:href="@{/index(page=${page})}" th:text="${page}"></a>
+                        </li>
+                        <li class="page-item" th:if="${existNextPage}">
+                            <a class="page-link" th:href="@{/index(page=${endPage}+1)}">다음</a>
+                        </li>
+                        <li class="page-item" th:if="${existNextPage}">
+                            <a class="page-link" th:href="@{/index(page=${lastPageFirst})}" tabindex="-1">마지막</a>
+                        </li>
+                    </ul>
+                </nav>
+
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">

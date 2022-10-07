@@ -7,15 +7,22 @@
 // Use this file to add JavaScript to your project
 
 
-$(function(){
-
-  $("button").click(function(){
-    $(".modal").fadeIn();
-  });
-
-  $(".modal_content").click(function(){
-    $(".modal").fadeOut();
-  });
-
-});
-
+//$(function(){
+//
+//  $("button").click(function(){
+//    $(".modal").fadeIn();
+//  });
+//
+//  $(".modal_content").click(function(){
+//    $(".modal").fadeOut();
+//  });
+//
+//});
+//
+//    $('#pagination-demo').twbsPagination({
+//        totalPages: 35,
+//        visiblePages: 7,
+//        onPageClick: function (event, page) {
+//            $('#page-content').text('Page ' + page);
+//        }
+//    });

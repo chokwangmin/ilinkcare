@@ -46,7 +46,15 @@
     <select id="findAllTeacher" resultType="Teacher">
         SELECT *
         FROM teacher
+        limit #{limitStart}, #{limitEnd};
     </select>
+
+    <select id="findAllTeacherCount" resultType="int">
+        SELECT COUNT(*)
+        FROM teacher
+    </select>
+
+
     <!-- 교사 찾기-->
     <select id="selectTeacher" parameterType="int" resultType="Teacher">
         SELECT *

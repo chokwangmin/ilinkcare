@@ -11793,7 +11793,7 @@ ol {
 /*
 html {
     min-height: 100%;
-    background-image: url(img/imgback.jpg);
+    background-image: url(static/img/back.jpg;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -11979,7 +11979,7 @@ body {
 }
 
 body {
-    background-image: url(img/back.jpg);
+    background-image: url(static/img/back.jpg);
     background-repeat: no-repeat;
 }
 

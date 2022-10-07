@@ -13,12 +13,12 @@ public class ViewContoller {
     ChildMapper childMapper;
     /*메인페이지*/
 
-    /*아이정보*/
-    @GetMapping("/childinfo")
-    public String childinfo(){
-
-        return "childinfo";
-    }
+//    /*아이정보*/
+//    @GetMapping("/childinfo")
+//    public String childinfo(){
+//
+//        return "childinfo";
+//    }
     /*회원가입*/
     @GetMapping("/join")
     public String join(){
@@ -31,25 +31,25 @@ public class ViewContoller {
 
         return "login";
     }
-//    /*마이페이지*/
-//    @GetMapping("/mypage")
-//    public String mypage(){
-//
-//        return "mypage";
-//    }
+    /*마이페이지*/
+    @GetMapping("/mypage")
+    public String mypage(){
 
-    /*프로필*/
-    @GetMapping("/profil")
-    public String ProfilView(){
-
-        return "profilview";
+        return "mypage";
     }
 
-    @GetMapping("/profilview") //localhost:8088/api/child
+    /*프로필*/
+    @GetMapping("/profile")
+    public String ProfileView(){
+
+        return "profileview";
+    }
+
+    @GetMapping("/profileview") //localhost:8088/api/child
     public String read(Model model){
 
         model.addAttribute("childList", childMapper.findAll());
-        return "profilview";
+        return "profileview";
     }
 
     @GetMapping("/review")
@@ -59,10 +59,10 @@ public class ViewContoller {
     }
 
 
-    @GetMapping("/userupdate")
-    public String UserUpdate(){
+    @GetMapping("/memberupdate")
+    public String MemberUpdate(){
 
-        return "userupdate";
+        return "memberupdate";
     }
 
     @GetMapping("/wishlist")
