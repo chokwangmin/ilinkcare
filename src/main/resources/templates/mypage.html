@@ -16,6 +16,8 @@
     <link href="css/join.css" rel="stylesheet" />
     <script type="text/javascript" src="js/login.js"></script>
     <script>
+
+<!--    아이정보관리-->
     function baby() {
         $.ajax({
             url : "childinfo",
@@ -32,7 +34,7 @@
         });
 
     }
-
+<!--    교육신청내역-->
      function orderlist() {
         $.ajax({
             url : "orderlist",
@@ -49,7 +51,7 @@
         });
 
     }
-
+<!--    개인정보관리-->
          function memberupdate() {
         $.ajax({
             url : "memberupdate",
@@ -66,6 +68,25 @@
         });
 
     }
+
+    <!--    리뷰-->
+     function reviewlist() {
+        $.ajax({
+            url : "reviewlist",
+            success : function(result) {
+                console.log("성공");
+                console.log(result);
+                $(".shopping-cart .container").empty();
+                $(".shopping-cart .container").html(result);
+            },
+            error:function(request,status,error){
+                console.log("실패");
+                console.log(request);
+            }
+        });
+
+    }
+
 
     $(document).ready(function() {
         orderlist();
@@ -113,7 +134,7 @@
                 <nav class="nav-menu">
                     <ul>
                         <li class="active"><a href="javascript:void(0);" onclick="orderlist()">교육신청내역</a></li>
-                        <li><a href="/review">리뷰관리</a></li>
+                        <li><a href="javascript:void(0);" onclick="reviewlist()">리뷰관리</a></li>
                         <li><a href="javascript:void(0);" onclick="baby()">아이정보관리</a></li>
                         <li><a href="javascript:void(0);" onclick="memberupdate()">개인정보관리</a></li>
                     </ul>

@@ -35,7 +35,7 @@
         <section class="py-6">
             <div class="container px-4 px-lg-5 my-5" >
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-bottom mb-5 mb-md-0" src="/img/chopa.jpg" alt="..." /></div>
+                    <div class="col-md-6"><img class="card-img-bottom mb-5 mb-md-0" th:src="@{img/} + ${teacher.filename}" style="height : 254px;" onerror="this.src='https://dummyimage.com/450x300/dee2e6/6c757d.jpg';" /></div>
                     <div class="col-md-6">
                         <div class="large mb-3"><a class="display-5 fw-bolder" th:text="${teacher.name}"></a></div>
                         <div class="display-8 fw-bolder mb-1">프로그램</div>

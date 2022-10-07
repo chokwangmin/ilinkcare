@@ -60,11 +60,11 @@ public class ViewContoller {
         return "profileview";
     }
 
-    @GetMapping("/review")
-    public String review(){
-
-        return "review";
-    }
+//    @GetMapping("/reviewlist")
+//    public String reviewlist(){
+//
+//        return "reviewlist";
+//    }
 
 
     @GetMapping("/memberupdate")
