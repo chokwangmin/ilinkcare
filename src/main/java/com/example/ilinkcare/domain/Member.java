@@ -16,6 +16,8 @@ import java.util.Collection;
 public class Member implements UserDetails {
     private User user;
 
+    public Member() {}
+
     public Member(User user) {
         this.user = user;
     }
