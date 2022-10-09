@@ -18,9 +18,9 @@
         <script type="text/javascript" src="js/login.js"></script>
     </head>
 
-<!--    <th:block th:fragment="setProfielview(profilview)">-->
+<!--    <th:block th:fragment="setProfielview(profilview=)">-->
     <body>
-    <div id="modal" class="modal">
+    <div id="modal" class="modal" style="width:39vw; height:52vh;">
         <div class="modal_content" title="클릭하면 창이 닫힙니다.">
             <!--           <a class="modal-close"><img src="img/x-circle-fill.svg" width="50px"><a/>-->
                         <th:block th:replace="~{/order :: setOrder(~{this::order} )}"></th:block>

@@ -15,7 +15,64 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/join.css" rel="stylesheet" />
     <script type="text/javascript" src="js/login.js"></script>
-    <script>
+
+</head>
+<body>
+<!--<div id="modal2" class="modal">-->
+<!--    <div class="modal_content" title="클릭하면 창이 닫힙니다.">-->
+<!--       <a class="modal-close"><img src="img/x-circle-fill.svg" width="50px"><a/>-->
+<!--        <th:block th:replace="~{/review :: setReview(~{this::review} )}"></th:block>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-- Navigation-->
+<div th:insert="~{/header :: headerFragment}"></div>
+
+<section class="py-6">
+
+    <div class="nav-mitem">
+        <div class="container">
+            <div class="nav-depart">
+                <nav class="nav-menu">
+                    <ul>
+                        <li class="active"><a href="javascript:void(0);" onclick="orderlist()">교육신청내역</a></li>
+                        <li><a href="javascript:void(0);" onclick="reviewlist()">리뷰관리</a></li>
+                        <li><a href="javascript:void(0);" onclick="baby()">아이정보관리</a></li>
+                        <li><a href="javascript:void(0);" onclick="memberupdate()">개인정보관리</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+</section>
+<!-- Shopping Cart Section Begin -->
+<section class="shopping-cart spad">
+    <div class="container">
+        <div th:insert="~{/orderlist :: orderFragment}"></div>
+    </div>
+    <!--<div class="container">
+        <div th:insert="~{/childinfo :: childinfoFragment}"></div>
+    </div>-->
+</section>
+
+<section class="shopping-cart spad">
+    <div class="childinfo_container">
+        <div th:insert="~{/childinfo :: childinfoFragment}"></div>
+    </div>
+    <!--<div class="container">
+        <div th:insert="~{/childinfo :: childinfoFragment}"></div>
+    </div>-->
+</section>
+<!-- Shopping Cart Section Begin -->
+
+<!-- Footer-->
+<footer class="py-2 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+</footer>
+
+</body>
+
+</html>
+<script>
 
 <!--    아이정보관리-->
     function baby() {
@@ -96,81 +153,3 @@
         orderlist();
     });
     </script>
-</head>
-<body>
-<!--<div id="modal2" class="modal">-->
-<!--    <div class="modal_content" title="클릭하면 창이 닫힙니다.">-->
-<!--       <a class="modal-close"><img src="img/x-circle-fill.svg" width="50px"><a/>-->
-<!--        <th:block th:replace="~{/review :: setReview(~{this::review} )}"></th:block>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand fw-bolder" href="/index"> <img src="img/logo4.png"  alt="logo" /></a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-t
-                arget="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-6">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/login" style="font-size:1em">로그인</a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/join" style="font-size:1em">회원가입</a></li>
-                <li class="nav-item"><a class="nav-link active" href="#!" style="font-size:1em" >관심 선생님</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size:1em">마이페이지</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/mypage">나의 신청내역</a></li>
-                        <li><a class="dropdown-item" href="#!">개인정보수정</a></li>
-                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<section class="py-6">
-
-    <div class="nav-mitem">
-        <div class="container">
-            <div class="nav-depart">
-                <nav class="nav-menu">
-                    <ul>
-                        <li class="active"><a href="javascript:void(0);" onclick="orderlist()">교육신청내역</a></li>
-                        <li><a href="javascript:void(0);" onclick="reviewlist()">리뷰관리</a></li>
-                        <li><a href="javascript:void(0);" onclick="baby()">아이정보관리</a></li>
-                        <li><a href="javascript:void(0);" onclick="memberupdate()">개인정보관리</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-</section>
-<!-- Shopping Cart Section Begin -->
-<section class="shopping-cart spad">
-    <div class="container">
-        <div th:insert="~{/orderlist :: orderFragment}"></div>
-    </div>
-    <!--<div class="container">
-        <div th:insert="~{/childinfo :: childinfoFragment}"></div>
-    </div>-->
-</section>
-
-<section class="shopping-cart spad">
-    <div class="childinfo_container">
-        <div th:insert="~{/childinfo :: childinfoFragment}"></div>
-    </div>
-    <!--<div class="container">
-        <div th:insert="~{/childinfo :: childinfoFragment}"></div>
-    </div>-->
-</section>
-<!-- Shopping Cart Section Begin -->
-
-<!-- Footer-->
-<footer class="py-2 bg-dark">
-    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
-</footer>
-
-</body>
-
-</html>

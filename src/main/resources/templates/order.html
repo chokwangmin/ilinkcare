@@ -28,10 +28,12 @@
     <script type="text/javascript" src="js/login.js"></script>
 
 </head>
+
 <body>
-<th:block th:fragment="setOrder(order)">
-<section class="py-6">
+
+<section class="py-6" >
     <div class="container px-4 px-lg-6 mt-5">
+        <th:block th:fragment="setOrder(order)">
         <div class="login-wrapper py-6">
             <h2 align="center">교육신청</h2>
             <form method="post" action="#" id="login-form">
@@ -56,6 +58,7 @@
                 <input type="submit" value="교육신청하기">
             </form>
         </div>
+        </th:block>
     </div>
 </section>
 <script>
@@ -71,6 +74,6 @@ window.onload = function(){
     });
 }
 </script>
-</th:block>
+
 </body>
 </html>
