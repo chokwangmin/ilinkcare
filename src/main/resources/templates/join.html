@@ -18,18 +18,19 @@
 </head>
 <body>
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand fw-bolder" href="/index"> <img src="img/logo4.png"  alt="logo" /></a>
+<div th:insert="~{/header :: headerFragment}"></div>
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--    <div class="container px-4 px-lg-5">-->
+<!--        <a class="navbar-brand fw-bolder" href="/index"> <img src="img/logo4.png"  alt="logo" /></a>-->
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-6">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/login" style="font-size:1em">로그인</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>-->
+<!--        <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-6">-->
+<!--                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/login" style="font-size:1em">로그인</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
 
 
 <div class="wrap wd668">
@@ -89,10 +90,7 @@
                     <div class="exform_txt"><span>표시는 필수적으로 입력해주셔야 가입이 가능합니다.</span></div>
                 </div><!-- join_form E  -->
                 <div class="agree_wrap">
-                    <div class="checkbox_wrap">
-                        <input type="checkbox" id="news_letter" name="news_letter" class="agree_chk">
-                        <label for="news_letter">[선택]뉴스레터 수신동의</label>
-                    </div>
+
                     <div class="checkbox_wrap mar27">
                         <input type="checkbox" id="marketing" name="marketing" class="agree_chk">
                         <label for="marketing">[선택]마케팅 목적 개인정보 수집 및 이용에 대한 동의</label>

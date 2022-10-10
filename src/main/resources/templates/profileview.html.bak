@@ -15,15 +15,23 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
+<<<<<<< HEAD
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
         <script type="text/javascript" src="js/login.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+=======
+        <script type="text/javascript" src="js/login.js"></script>
+>>>>>>> main
     </head>
 
-<!--    <th:block th:fragment="setProfielview(profilview=)">-->
+<!--    <th:block th:fragment="setProfielview(profilview)">-->
     <body>
-    <div id="modal" class="modal" style="width:39vw; height:52vh;">
+    <div id="modal" class="modal">
         <div class="modal_content" title="클릭하면 창이 닫힙니다.">
             <!--           <a class="modal-close"><img src="img/x-circle-fill.svg" width="50px"><a/>-->
-                        <th:block th:replace="~{/order :: setOrder(~{this::order} )}"></th:block>
+            <!--            <th:block th:replace="~{/order :: setOrder(~{this::order} )}"></th:block>-->
         </div>
     </div>
     <tr th:each="child : ${childList}">
@@ -49,9 +57,14 @@
                         <h1 class="display-7 fw-bolder mb-3"><span th:text="${teacher.address1}"></span></h1>
                         <div class="d-flex">
                             <!--<input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />-->
+<<<<<<< HEAD
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" id="applyClick">
+                                <i class=" me-1" ></i>교육신청하기
+=======
                             <button id="applyClick"class="btn btn-outline-dark flex-shrink-0" type="button">
                                 <i class=" me-1"></i>
                                 교육신청하기
+>>>>>>> main
                             </button>
                         </div>
                     </div>
@@ -91,13 +104,19 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
+<<<<<<< HEAD
+<!--    </th:block>-->
+</html>
+
+</html>
+=======
     </th:block>
 
-<!--    <div class="modal">-->
-<!--        <div class="modal_content" title="클릭하면 창이 닫힙니다.">-->
-<!--            &lt;!&ndash;            <th:block th:replace="~{/teacher :: setProfilelview(~{this::teacher} )}"></th:block>&ndash;&gt;-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="modal">
+        <div class="modal_content" title="클릭하면 창이 닫힙니다.">
+            <!--            <th:block th:replace="~{/teacher :: setProfilelview(~{this::teacher} )}"></th:block>-->
+        </div>
+    </div>
 
 <!--    <div class="modal">-->
 <!--        <div class="screen">-->
@@ -115,6 +134,7 @@
 
 
 </html>
+>>>>>>> main
 <script>
 
 $(function(){

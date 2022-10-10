@@ -15,41 +15,34 @@
         <link href="/css/styles.css" rel="stylesheet" />
         <script type="text/javascript" src="js/login.js"></script>
         <script type="text/javascript" src="js/test.js"></script>
-
-
     </head>
     <body>
-    <div class="modal">
-        <div class="modal_content" title="클릭하면 창이 닫힙니다.">
-<!--            <th:block th:replace="~{/teacher :: setProfilelview(~{this::teacher} )}"></th:block>-->
-        </div>
-    </div>
-
 
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="px-lg-5">
-            <a class="navbar-brand fw-bolder" href="/index" > <img src="img/logo4.png"  alt="logo" /></a>
-            </div>
-            <div class="container px-4 px-lg-7 h4">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-7">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/login">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/join">회원가입</a></li>
-                        <li class="nav-item" sec:authorize="hasRole('ROLE_USER')"><a class="nav-link active" href="/wishlist">관심교사</a></li>
-                        <li class="nav-item" sec:authorize="hasRole('ROLE_USER')"><a class="nav-link active" aria-current="page" href="/mypage">마이페이지</a></li>
-                    </ul>
-<!--                    <form class="d-flex">-->
-<!--                        <button class="btn btn-outline-dark" type="submit">-->
-<!--                            <i class="bi-cart-fill me-1"></i>-->
-<!--                            Cart-->
-<!--                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>-->
-<!--                        </button>-->
-<!--                    </form>-->
-                </div>
-            </div>
-        </nav>
+        <div th:insert="~{/header :: headerFragment}"></div>
+<!--        <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--            <div class="px-lg-5">-->
+<!--            <a class="navbar-brand fw-bolder" href="/index" > <img src="img/logo4.png"  alt="logo" /></a>-->
+<!--            </div>-->
+<!--            <div class="container px-4 px-lg-7 h4">-->
+<!--                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>-->
+<!--                <div class="collapse navbar-collapse" id="navbarSupportedContent" >-->
+<!--                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-7">-->
+<!--                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/login">로그인</a></li>-->
+<!--                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/join">회원가입</a></li>-->
+<!--                        <li class="nav-item" sec:authorize="hasRole('ROLE_USER')"><a class="nav-link active" href="/wishlist">관심교사</a></li>-->
+<!--                        <li class="nav-item" sec:authorize="hasRole('ROLE_USER')"><a class="nav-link active" aria-current="page" href="/mypage">마이페이지</a></li>-->
+<!--                    </ul>-->
+<!--&lt;!&ndash;                    <form class="d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <button class="btn btn-outline-dark" type="submit">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <i class="bi-cart-fill me-1"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                            Cart&ndash;&gt;-->
+<!--&lt;!&ndash;                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </button>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </form>&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </nav>-->
         <!-- Header-->
         <header class="bg-yellow2 py-4">
             <header class="py-6 bg-image-full" style="background-image: url('https://live.staticflickr.com/65535/52371276780_e7fe8018da_k.jpg')">
@@ -68,11 +61,15 @@
 <!--              <tr th:each="teacher : ${teachers}">-->
 <!--                  <a th:text="${teacher.name}" th:href="@{/teacher/{id}(id=${teacher.teacher_no})}"><a/>-->
 
-
-
 <!--            </tr>-->
 
         </header>
+
+        <div class="modal">
+            <div class="modal_content" title="클릭하면 창이 닫힙니다.">
+                <!--            <th:block th:replace="~{/teacher :: setProfilelview(~{this::teacher} )}"></th:block>-->
+            </div>
+        </div>
         <!-- Section-->
         <section class="py-6">
             <div class="container px-4 px-lg-5 mt-5">
@@ -103,7 +100,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a id="wishlist"class="btn btn-outline-dark mt-auto" href="#!">관심 등록</a></div>
+                                <div class="text-center"><a id="wishlist"class="btn btn-outline-dark mt-auto" href="#!">관심등록</a></div>
                             </div>
                         </div>
                     </div>
