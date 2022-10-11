@@ -65,11 +65,7 @@
 
         </header>
 
-        <div class="modal">
-            <div class="modal_content" title="클릭하면 창이 닫힙니다.">
-                <!--            <th:block th:replace="~{/teacher :: setProfilelview(~{this::teacher} )}"></th:block>-->
-            </div>
-        </div>
+
         <!-- Section-->
         <section class="py-6">
             <div class="container px-4 px-lg-5 mt-5">
@@ -99,9 +95,16 @@
                                 </div>
                             </div>
                             <!-- Product actions-->
+                            <form id="wishlistRegist" method="post" action="/wishlist">
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a id="wishlist"class="btn btn-outline-dark mt-auto" href="#!">관심등록</a></div>
+                                <tr>
+                                    <td><input type="text"  name="teacher_no" style="display: none"></td>
+                                    <td><input type="text"  name="user_no" style="display: none"></td>
+                                </tr>
+                                <div class="text-center"><a type="submit" id="wishlist"class="btn btn-outline-dark mt-auto" href="#!">관심등록</a></div>
+                                <button type="submit">작성</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
