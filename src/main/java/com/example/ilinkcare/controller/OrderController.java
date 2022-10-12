@@ -39,7 +39,7 @@ public class OrderController {
 
         orderService.OrderCreate(order);
 
-        return "";
+        return "orderlist";
 
     }
 

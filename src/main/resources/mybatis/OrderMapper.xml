@@ -4,7 +4,8 @@
 
     <!--    교육신청 찾기-->
     <insert id="insertOrder" parameterType="com.example.ilinkcare.domain.Order">
-        INSERT INTO orders ( user_no
+        INSERT INTO orders (
+                            user_no
                           , to_name
                           , to_addr
                           , to_tel
@@ -21,7 +22,7 @@
                           , update_dt
                           , update_by
         ) values (
-                          , #{user_no}
+                           #{user_no}
                           , #{to_name}
                           , #{to_addr}
                           , #{to_tel}

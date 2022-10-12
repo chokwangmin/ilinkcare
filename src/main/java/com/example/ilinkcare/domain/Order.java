@@ -13,6 +13,7 @@ public class Order {
     private Long user_no;
     private String name;
     private String t_name;
+    private String to_name;
     private String to_addr;
     private String to_tel;
     private String care_time;
