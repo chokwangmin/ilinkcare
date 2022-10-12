@@ -89,7 +89,7 @@
         )
     </select>
 
-    <update id="registInterest" parameterType="java.util.Map">
+    <update id="registWishList" parameterType="java.util.Map">
         INSERT INTO ilinkcare.wishlist ( teacher_no
                                        , user_no
                                        , created_dt
@@ -100,7 +100,7 @@
         )
     </update>
 
-    <select id="selectInterestTeacherCnt" parameterType="java.util.Map" resultType="int">
+    <select id="selectWishListTeacherCnt" parameterType="java.util.Map" resultType="int">
         SELECT COUNT(*)
         FROM
             ilinkcare.wishlist
@@ -111,13 +111,26 @@
             user_no = #{userNo}
     </select>
 
-    <select id="selectInterestTeacherAllCnt" parameterType="java.util.Map" resultType="int">
+    <select id="selectWishListTeacherAllCnt" parameterType="java.util.Map" resultType="int">
         SELECT COUNT(*)
         FROM
             ilinkcare.wishlist
         WHERE 1 = 1
         AND
             user_no = #{userNo}
+    </select>
+
+    <select id="selectWithList" parameterType="java.util.Map" resultType="com.example.ilinkcare.domain.Teacher">
+        SELECT
+            t.comments , t.name AS t_name
+        FROM
+            ilinkcare.wishlist w
+        INNER JOIN
+            ilinkcare.teacher AS t
+            ON
+                w.teacher_no = w.teacher_no
+        WHERE
+            w.user_no = #{orderNo}
     </select>
 
 </mapper>

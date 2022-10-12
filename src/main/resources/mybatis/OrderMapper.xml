@@ -93,7 +93,6 @@
                 t.teacher_no = o.teacher_no
         WHERE
             o.order_no = #{orderNo}
-
     </select>
 
     <select id="selectReviewCount" parameterType="java.util.Map" resultType="int">

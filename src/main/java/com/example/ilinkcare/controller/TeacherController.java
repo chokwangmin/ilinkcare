@@ -99,7 +99,7 @@ public class TeacherController {
         Teacher teacher = teacherService.getTeacher(teacher_no);
 
         // 교사 리뷰 리스트
-       List<CommentDto> comments = teacherService.GetReview(teacher_no);
+        List<CommentDto> comments = teacherService.GetReview(teacher_no);
 
         // View (Model)
         model.addAttribute("teacher", teacher);
@@ -120,9 +120,9 @@ public class TeacherController {
         return "";
     }
 
-    @RequestMapping("/registInterest")
+    @RequestMapping("/registWishList")
     @ResponseBody
-    public String registInterest(@RequestParam String teacherNo, Authentication authentication){
+    public String registWishList(@RequestParam String teacherNo, Authentication authentication){
         String msg = "";
 
         try {
@@ -132,13 +132,13 @@ public class TeacherController {
             param.put("teacherNo", teacherNo);
             param.put("userNo", userDetails.getUserNo());
 
-            int allCount = teacherService.selectInterestTeacherAllCnt(param);
-            int targetCount = teacherService.selectInterestTeacherCnt(param);
+            int allCount = teacherService.selectWishListTeacherAllCnt(param);
+            int targetCount = teacherService.selectWishListTeacherCnt(param);
 
             if (allCount < 4) {
                 if (targetCount == 0) {
                     // 관심등록
-                    int result = teacherService.registInterest(param);
+                    int result = teacherService.registWishList(param);
                     if (result > 0) {
                         msg = "관심등록이 완료되었습니다.";
                     } else {
@@ -157,24 +157,18 @@ public class TeacherController {
 
         return msg;
     }
+    @GetMapping("/wishlist")
+    public String withList(ModelMap modelMap, Authentication authentication){
+        MemberSecurity userDetails = (MemberSecurity) authentication.getPrincipal();
 
-    /**
-     * 관심교사 등록
-     */
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put("userNo", userDetails.getUserNo());
 
-    @PostMapping("/wishlist")
-    public String WishListCreate(Wishlist wishlist){
-        teacherService.CreateWishlist(wishlist);
-        return "";
+        List<Teacher> withList = teacherService.selectWithList(param);
+        modelMap.put("withList", withList);
+
+        return "wishlist";
     }
-
-    /**
-     * 관심교사리스트
-     *
-     */
-//
-//    @GetMapping("/wishlist")
-//
 
 
 }
