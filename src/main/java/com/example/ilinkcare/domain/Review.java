@@ -3,21 +3,15 @@ package com.example.ilinkcare.domain;
 import lombok.Data;
 import lombok.ToString;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
 @ToString
 public class Review {
-
-    private Long comment_no;
-    private Long user_no;
-    private Long teacher_no;
-    private Long order_no;
-    private String content;
-    private LocalDate created_dt;
-    private Long created_by;
-    private LocalDate update_dt;
-    private Long update_by;
-
+    private String comment_no;      // 코멘트번호
+    private String order_no;        // 주문번호
+    private String comments;        // 리뷰내용
+    private String content;         // 프로그램명
+    private String t_name;          // 선생님이름
+    private String create_dt;
 }

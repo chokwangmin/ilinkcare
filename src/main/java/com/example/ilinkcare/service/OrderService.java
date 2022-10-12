@@ -1,6 +1,5 @@
 package com.example.ilinkcare.service;
 
-import com.example.ilinkcare.domain.Child;
 import com.example.ilinkcare.domain.Order;
 import com.example.ilinkcare.domain.Teacher;
 
@@ -9,11 +8,17 @@ import java.util.List;
 
 public interface OrderService {
 
-    List<Order> getOrderList();
+    List<Order> getOrderList(Map<String, Object> param);
 
+    List<Review> getReviewList(Map<String, Object> param);
+
+    Teacher getReviewDetail(Map<String, Object> param);
     Order getOrder(int order_no);
 
-    //ì£¼ë¬¸ìƒì„±
-    void OrderCreate (Order order);
+    int selectReviewCount(Map<String, Object> param);
 
+    int registReview(Map<String, Object> param);
+    
+    //ÁÖ¹®»ı¼º
+    void OrderCreate (Order order);
 }

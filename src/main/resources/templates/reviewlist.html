@@ -17,12 +17,29 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <script type="text/javascript" src="js/login.js"></script>
-
+    <script>
+        function reviewLayer(orderNo) {
+            $.ajax({
+                url : "/review",
+                data : {"orderNo": orderNo},
+                success : function(result) {
+                    $("#modal2 .modal_content2").html(result);
+                    $modal = $(".modal2");
+                    $(".modal2").fadeIn();
+                },
+                error:function(request,status,error){
+                    alert("시스템 오류가 발생하였습니다");
+                    console.log("에러");
+                    console.log(request);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 <div id="modal2" class="modal2">
     <div class="modal_content2" title="클릭하면 창이 닫힙니다.">
-        <th:block th:replace="~{/review :: setReview(~{this::review} )}"></th:block>
+
     </div>
 </div>
 <div class="row">
@@ -31,21 +48,24 @@
             <table>
                 <thead>
                 <tr>
-                    <th>주문번호</th>
-                    <th>내용</th>
+                    <th>주문번호11</th>
+                    <th>프로그램명</th>
                     <th>교사명</th>
+                    <th>리뷰내용</th>
                     <th>등록일</th>
                     <th>리뷰</th>
                     <th><i class="ti-close"></i></th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr scope="row">
-                    <td class="p-price first-row"></td>
-                    <td class="cart-title first-row" >
-                    <td class="p-price first-row"></td>
-                    <td class="total-price first-row" ><a id="applyClick" href="#!">리뷰작성하기</a></td>
-                      <td class="close-td first-row"><i class="ti-close"></i></td>
+                <tr th:each="review : ${reviewList}">
+                    <td class="p-price first-row" th:text="${review.order_no}"></td>
+                    <td class="p-price first-row" th:text="${review.comments}"></td>
+                    <td class="total-price first-row" th:text="${review.t_name}"></td>
+                    <td class="total-price first-row" th:text="${review.content}"></td>
+                    <td class="total-price first-row" th:text="${review.create_dt}"></td>
+                    <td class="total-price first-row"><a th:if="${review.comment_no == null}" href="#!" th:attr="onclick=|javascript:reviewLayer('${review.order_no}')|">리뷰작성하기</a></td>
+                    <td class="close-td first-row"><i class="ti-close"></i></td>
                 </tr>
                 </tbody>
             </table>
@@ -54,14 +74,3 @@
 </div>
 </body>
 </html>
-<script>
-
-$(function(){
-  $modal = $(".modal2");
-
-$("#applyClick").click(function(){
-    $(".modal2").fadeIn();
-  });
-
-});
-</script>

@@ -19,15 +19,16 @@ public interface TeacherService {
 
     void joinTeacher(Teacher teacher);
 
-    //List<Teacher> GetTeachersByRegion( );
+    // 관심등록
+    int registWishList(Map<String, Object> param);
 
-    void CreateWishlist(Wishlist wishlist);
+    // 타겟 관심등록 개수 조회.
+    int selectWishListTeacherCnt(Map<String, Object> param);
 
-    int registInterest(Map<String, Object> param);
+    // 관심등록 전체개수 조회.
+    int selectWishListTeacherAllCnt(Map<String, Object> param);
 
-    int selectInterestTeacherCnt(Map<String, Object> param);
-
-    int selectInterestTeacherAllCnt(Map<String, Object> param);
+    List<Teacher> selectWishList(Map<String, Object> param);
 
 }
 

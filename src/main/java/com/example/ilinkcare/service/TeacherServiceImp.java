@@ -48,30 +48,25 @@ public class TeacherServiceImp implements TeacherService {
         teacherMapper.insertTeacher(teacher);
     }
 
-
-    // 교사 검색 가져오기
-
-    // 등록된 교사 리스트
-
-    //관심교사 등록
-
-    public void CreateWishlist(Wishlist wishlist){
-        teacherMapper.insertWishlist(wishlist);
-
+    @Override
+    public int registWishList(Map<String, Object> param) {
+        return teacherMapper.registWishList(param);
     }
 
     @Override
-    public int registInterest(Map<String, Object> param) {
-        return teacherMapper.registInterest(param);
+    public int selectWishListTeacherCnt(Map<String, Object> param) {
+        return teacherMapper.selectWishListTeacherCnt(param);
     }
 
     @Override
-    public int selectInterestTeacherCnt(Map<String, Object> param) {
-        return teacherMapper.selectInterestTeacherCnt(param);
+    public int selectWishListTeacherAllCnt(Map<String, Object> param) {
+        return teacherMapper.selectWishListTeacherAllCnt(param);
     }
 
     @Override
-    public int selectInterestTeacherAllCnt(Map<String, Object> param) {
-        return teacherMapper.selectInterestTeacherAllCnt(param);
+    public List<Teacher> selectWishList(Map<String, Object> param) {
+        return teacherMapper.selectWishList(param);
     }
+
+
 }

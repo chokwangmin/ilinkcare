@@ -67,7 +67,6 @@
         </header>
 
         <!-- Section-->
-
         <section class="py-6">
             <div class="container px-4 px-lg-5 mt-5" >
                 <div class="px-lg-5" >
@@ -99,16 +98,12 @@
 <!--                                        <div class="bi-star-fill"></div>-->
 <!--                                    </div>-->
                                     <!-- Product price-->
-                                    <span class="fw-bolder"><a th:text="${teacher.name}" th:href="@{/teacher/{id}(id=${teacher.teacher_no})}"></a></span>
+                                    <span class="fw-bolder"><a th:text="${teacher.name}" href="#"></a></span>
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div sec:authorize="hasRole('ROLE_USER')" class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a id="wishlist"class="btn btn-outline-dark mt-auto" href="#!" th:onclick="|javascript:registInterest('${teacher.teacher_no}')|">관심등록</a></div>
-<!--                                <tr>-->
-<!--                                    <td><input type="text"  name="teacher_no"  style="display: none"></td>-->
-<!--                                    <td><input type="text"  name="user_no"  style="display: none"></td>-->
-<!--                                </tr>-->
+                                <div class="text-center"><a id="wishlist"class="btn btn-outline-dark mt-auto" href="#!" th:onclick="|javascript:registWishList('${teacher.teacher_no}')|">관심등록</a></div>
                             </div>
                             </form>
                         </div>
@@ -134,7 +129,6 @@
                         </li>
                     </ul>
                 </nav>
-
 
         </section>
         <!-- Footer-->

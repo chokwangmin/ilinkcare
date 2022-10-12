@@ -18,9 +18,9 @@ function showPopUp(teacherNo) {
 	window.open(url, "hello popup", windowStatus);
 }
 
-function registInterest(teacherNo) {
+function registWishList(teacherNo) {
     $.ajax({
-        url : "/registInterest",
+        url : "/registWishList",
         data: {"teacherNo" : teacherNo},
         success : function(result) {
         console.log(result);
