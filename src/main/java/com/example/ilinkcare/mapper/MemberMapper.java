@@ -16,4 +16,6 @@ public interface MemberMapper {
     int dupUserId(Member member);
     
     User findByUsername(Map<String, Object> param);
+
+    Member MemberSelect(Map<String, Object> param);
 }

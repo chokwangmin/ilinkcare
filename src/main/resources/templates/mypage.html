@@ -64,6 +64,15 @@
 </section>
 <!-- Shopping Cart Section Begin -->
 
+<section class="shopping-cart spad">
+    <div class="childinfo_container">
+        <div th:insert="~{/memberupdate :: memberupdateFragment}"></div>
+    </div>
+    <!--<div class="container">
+        <div th:insert="~{/childinfo :: childinfoFragment}"></div>
+    </div>-->
+</section>
+
 <!-- Footer-->
 <footer class="py-2 bg-dark">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
@@ -113,7 +122,7 @@
 <!--    개인정보관리-->
          function memberupdate() {
         $.ajax({
-            url : "memberupdate",
+            url : "member/update",
             success : function(result) {
                 console.log("성공");
                 console.log(result);
