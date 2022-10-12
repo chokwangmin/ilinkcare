@@ -43,7 +43,11 @@ public class MemberServiceImp implements MemberService, UserDetailsService {
 
     @Override
     public void MemberUpdate(Member member) {
+        String Password = member.getPassword();
+        Password = new BCryptPasswordEncoder().encode(Password);
+        member.setPassword(Password);
 
+        memberMapper.updateMember(member);
     }
 
     public Member MemberSelect(Map<String, Object> param){

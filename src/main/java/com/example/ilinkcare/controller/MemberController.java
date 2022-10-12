@@ -48,12 +48,12 @@ public class MemberController {
 
         return "memberupdate";
     }
-    @PutMapping("/update")
+    @PostMapping("/update")
     public String MemberUpdates(Member member){
 
         memberService.MemberUpdate(member);
 
-        return "";
+        return "mypage";
     }
 
 }

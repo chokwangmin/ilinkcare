@@ -15,7 +15,7 @@
 </head>
 
     <!-- 회원정보수정-->
-    <div class="wrap wd668" th:fragment="memberupdateFragment">
+    <div class="wrap wd668"  style="max-width: 100%;" th:fragment="memberupdateFragment">
         <form class="container" id="memUpdate" method="post" action="/member/update">
             <div class="form_txtInput">
                 <h2 class="sub_tit_txt">회원정보수정</h2>
@@ -28,7 +28,7 @@
                         <tbody>
                         <tr>
                             <th><span>아이디</span></th>
-                            <td><input type="text" placeholder="ID 를 입력하세요." name="user_id" disabled th:value="${update.user_id}"></td>
+                            <td><input type="text" placeholder="ID 를 입력하세요." name="user_id"  readonly th:value="${update.user_id}"></td>
                         </tr>
                         <tr>
                             <th><span>이름</span></th>
@@ -43,7 +43,7 @@
                         </tr>
                         <tr>
                             <th><span>주소</span></th>
-                            <td><input type="text" id="address_kakao" name="address_detail" th:value="${update.address1}" /></td>
+                            <td><input type="text" id="address_kakao" name="address1" th:value="${update.address1}" /></td>
                         </tr>
 
                         <tr>
@@ -58,7 +58,7 @@
                     <div class="exform_txt"><span>표시는 필수적으로 입력해주셔야 가입이 가능합니다.</span></div>
                 </div><!-- join_form E  -->
                 <div class="btn_wrap">
-                    <a href="javascript:;" onclick="submitMemUpdate();">가입하기</a>
+                    <a href="javascript:;" onclick="submitMemUpdate();">수정하기</a>
                 </div>
         </form>
             </div> <!-- form_txtInput E -->
@@ -69,6 +69,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script src="js/join.js"></script>
     </body>
 </th:block>
 </html>

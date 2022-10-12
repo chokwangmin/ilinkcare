@@ -16,8 +16,8 @@
 
 </head>
 <body>
-<div class="myp_contents_wrap py-6" th:fragment="childinfoFragment">
-    <h4 class="cont_tit">아이정보 관리</h4>
+<div class="row" th:fragment="childinfoFragment">
+<!--    <h4 class="cont_tit">아이정보 관리</h4>-->
 <!--    <tr th:each="child : ${childinfo}">-->
 <!--        <td class="p-price first-row" th:text="${child.name}"></td>-->
 <!--    </tr>-->
@@ -27,9 +27,6 @@
         <div  class="sub_cont ng-scope">
             <div class="sub_tit_wrap">
                 <h5 class="tit__sub ng-binding">아이정보 2</h5>
-                <div class="btn_area lv2">
-                    <button ng-click="deleteKid(item.kidsNo)" type="button" class="btn_tx_g ic_r">삭제</button>
-                </div>
             </div>
 
             <table class="basic_table pd_sm">
@@ -56,19 +53,7 @@
                                 <div class="input_to_birth">
                                         <span class="it_basic" style="width:250px">
                                             <!-- 20200219 사이즈 고정 -->
-                                            <input type="text" id="year0" placeholder="년(4자리)" name="" class="ng-pristine ng-untouched ng-valid ng-not-empty">
-                                        </span>
-                                    <div class="ps_designSelBox" style="width:190px">
-                                        <!-- 20200219 사이즈 고정 -->
-                                        <span class="it_basic" style="width:250px">
-                                                <!-- 20200219 사이즈 고정 -->
-                                                <input type="text" id="year2" placeholder="월(2자리)" maxlength="2" ng-model="item.year" class="ng-pristine ng-untouched ng-valid ng-not-empty">
-                                            </span>
-
-                                    </div>
-                                    <span class="it_basic" style="width:190px">
-                                            <!-- 20200219 사이즈 고정 -->
-                                            <input type="text" id="day0" placeholder="일(2자리)" ng-model="item.day" maxlength="2" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-maxlength">
+                                            <input type="text" id="year0" placeholder="생년월일"  th:value="${child.birth}" name="" class="ng-pristine ng-untouched ng-valid ng-not-empty">
                                         </span>
                                 </div>
                             </li>
@@ -80,14 +65,7 @@
                     <td>
                         <ul class="form_box">
                             <li>
-                                    <span class="radio_type_box">
-                                        <input type="radio" class="r0" id="r0" name="gender0" ng-checked="item.sex == &#39;0&#39;?true:false" value="0" checked="checked">
-                                        <label for="r0" class="lg">남자</label>
-                                    </span>
-                                <span class="radio_type_box">
-                                        <input type="radio" class="r0" id="r0_2" name="gender0" ng-checked="item.sex == &#39;1&#39;?true:false" value="1">
-                                        <label for="r0_2" class="lg">여자</label>
-                                    </span>
+                                <input type="text" id="sex" placeholder="성별"  th:value="${child.birth}" name="" class="ng-pristine ng-untouched ng-valid ng-not-empty">
                             </li>
                         </ul>
                     </td>

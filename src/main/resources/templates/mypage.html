@@ -45,33 +45,15 @@
         </div>
 </section>
 <!-- Shopping Cart Section Begin -->
-<section class="shopping-cart spad">
+<section class="shopping-cart" style="height : 610px;">
     <div class="container">
         <div th:insert="~{/orderlist :: orderFragment}"></div>
-    </div>
-    <!--<div class="container">
         <div th:insert="~{/childinfo :: childinfoFragment}"></div>
-    </div>-->
-</section>
-
-<section class="shopping-cart spad">
-    <div class="childinfo_container">
-        <div th:insert="~{/childinfo :: childinfoFragment}"></div>
-    </div>
-    <!--<div class="container">
-        <div th:insert="~{/childinfo :: childinfoFragment}"></div>
-    </div>-->
-</section>
-<!-- Shopping Cart Section Begin -->
-
-<section class="shopping-cart spad">
-    <div class="childinfo_container">
         <div th:insert="~{/memberupdate :: memberupdateFragment}"></div>
     </div>
-    <!--<div class="container">
-        <div th:insert="~{/childinfo :: childinfoFragment}"></div>
-    </div>-->
+
 </section>
+
 
 <!-- Footer-->
 <footer class="py-2 bg-dark">
@@ -91,8 +73,7 @@
                 console.log("성공");
                 console.log(result);
                 $(".shopping-cart .container").empty();
-                $(".shopping-cart .childinfo_container").empty();
-                $(".shopping-cart .childinfo_container").html(result);
+                $(".shopping-cart .container").html(result);
             },
             error:function(request,status,error){
                 console.log("실패");
@@ -109,7 +90,6 @@
                 console.log("성공");
                 console.log(result);
                 $(".shopping-cart .container").empty();
-                $(".shopping-cart .childinfo_container").empty();
                 $(".shopping-cart .container").html(result);
             },
             error:function(request,status,error){
@@ -127,7 +107,6 @@
                 console.log("성공");
                 console.log(result);
                 $(".shopping-cart .container").empty();
-                $(".shopping-cart .childinfo_container").empty();
                 $(".shopping-cart .container").html(result);
             },
             error:function(request,status,error){

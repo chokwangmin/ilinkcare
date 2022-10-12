@@ -115,6 +115,7 @@ function submitMemUpdate()
     if(phoneVal == '')
     {
       alert("휴대폰 번호를 입력해주세요.");
+      return false;
     }
 
     //
@@ -126,19 +127,23 @@ function submitMemUpdate()
     if(userId_Val == '')
     {
       alert("아이디를 입력해주세요.");
+      return false;
     }
 
     if(userName_Val == '')
     {
       alert("이름을 입력해주세요.");
+      return false;
     }
     if(userPw_Val == '')
     {
       alert("비밀번호를 입력해주세요.");
+      return false;
     }
     if(userAddress_Val == '')
     {
        alert("주소를 입력해주세요.");
+       return false;
     }
 
     phoneVal = phoneVal.replace(/-/gi,'');

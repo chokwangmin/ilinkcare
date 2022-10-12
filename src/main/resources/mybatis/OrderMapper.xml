@@ -55,6 +55,8 @@
         INNER JOIN teacher AS t on o.teacher_no = t.teacher_no
         LEFT JOIN child AS c on o.user_no = c.user_no
         WHERE o.user_no = #{userNo}
+        order by order_no desc
+        limit 1
     </select>
 
     <select id="getReviewList" parameterType="java.util.Map" resultType="com.example.ilinkcare.domain.Review">
