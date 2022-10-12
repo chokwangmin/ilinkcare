@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -14,6 +15,7 @@
     <link href="css/styles.css" rel="stylesheet" />
     <script type="text/javascript" src="js/login.js"></script>
 </head>
+
 <body>
 <th:block th:fragment="setReview(review)">
     <!-- Navigation-->
@@ -43,19 +45,6 @@
     <section class="py-2">
         <div class="container px-4 px-lg-5 my-5">
     <form class="mb-3" name="myform" id="myform" method="post">
-        <fieldset>
-            <span class="text-bold">별점을 선택해주세요</span>
-            <input type="radio" name="reviewStar" value="5" id="rate1"><label
-                for="rate1">★</label>
-            <input type="radio" name="reviewStar" value="4" id="rate2"><label
-                for="rate2">★</label>
-            <input type="radio" name="reviewStar" value="3" id="rate3"><label
-                for="rate3">★</label>
-            <input type="radio" name="reviewStar" value="2" id="rate4"><label
-                for="rate4">★</label>
-            <input type="radio" name="reviewStar" value="1" id="rate5"><label
-                for="rate5">★</label>
-        </fieldset>
         <div>
 		<textarea class="col-auto form-control" type="text" id="reviewContents"
                   placeholder="좋은 리뷰를 남겨주시면 큰 힘이 됩니다!"></textarea>
