@@ -60,8 +60,13 @@ public class TeacherServiceImp implements TeacherService {
 
     }
 
+    @Override
+    public int registInterest(Map<String, Object> param) {
+        return teacherMapper.registInterest(param);
+    }
 
-
-
-
+    @Override
+    public int selectInterestTeacherCnt(Map<String, Object> param) {
+        return teacherMapper.selectInterestTeacherCnt(param);
+    }
 }

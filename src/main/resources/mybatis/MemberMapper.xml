@@ -68,6 +68,7 @@
               user_name as username
             , password  as password
             , user_id   as userid
+            , user_no   as userno
         FROM
             member
         WHERE

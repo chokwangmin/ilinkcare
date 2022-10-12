@@ -66,7 +66,6 @@
 
         </header>
 
-
         <!-- Section-->
         <section class="py-6">
             <div class="container px-4 px-lg-5 mt-5">
@@ -96,9 +95,8 @@
                                 </div>
                             </div>
                             <!-- Product actions-->
-                            <form id="wishlistRegist" method="get" action="/wishlist">
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <input type="hidden" th:name="teacher_no" th:value="${teacher.teacher_no}"/>
+                            <div sec:authorize="hasRole('ROLE_USER')" class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a id="wishlist"class="btn btn-outline-dark mt-auto" href="#!" th:onclick="|javascript:registInterest('${teacher.teacher_no}')|">관심등록</a></div>
 <!--                                <tr>-->
 <!--                                    <td><input type="text"  name="teacher_no"  style="display: none"></td>-->
 <!--                                    <td><input type="text"  name="user_no"  style="display: none"></td>-->

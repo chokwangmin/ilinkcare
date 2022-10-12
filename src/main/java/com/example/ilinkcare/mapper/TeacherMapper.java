@@ -25,6 +25,8 @@ public interface TeacherMapper {
     // 관심교사 등록
     void insertWishlist(Wishlist wishlist);
 
+    int registInterest(Map<String, Object> param);
 
+    int selectInterestTeacherCnt(Map<String, Object> param);
 
 }
