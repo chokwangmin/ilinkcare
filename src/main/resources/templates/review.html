@@ -14,10 +14,35 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <script type="text/javascript" src="js/login.js"></script>
+    <script>
+        function registReview() {
+            if ($("#reviewContents").val() == null || $("#reviewContents").val() == '') {
+                alert('리뷰를 작성해주세요');
+                return;
+            }
+
+            $.ajax({
+                url : "/registReview",
+                data: {
+                        "orderNo" : $("#orderNo").val()
+                      , "teacherNo" : $("#teacherNo").val()
+                      , "reviewContents" : $("#reviewContents").val()
+                },
+                success : function(result) {
+                    alert(result);
+                    $(".modal2").hide();
+                    reviewlist();
+                },
+                error:function(request, status, ferror){
+                    $(".modal2").hide();
+                    alert("관심등록 중 오류가 발생하였습니다.");
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
-<th:block th:fragment="setReview(review)">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
@@ -28,15 +53,17 @@
     <section class="py-7">
         <div class="container px-4 px-lg-5 my-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6"><img class="card-img-bottom mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                <input type="hidden" id="orderNo" th:value="${reviewDetail.order_no}" />
+                <input type="hidden" id="teacherNo" th:value="${reviewDetail.teacher_no}" />
+
+                <div class="col-md-6"><img class="card-img-bottom mb-5 mb-md-0" th:src="@{img/} + ${reviewDetail.filename}" onerror="this.src='https://dummyimage.com/450x300/dee2e6/6c757d.jpg';" alt="..." /></div>
                 <div class="col-md-6">
-                    <div class="small mb-1">ㅇㅇㅇㅇ8</div>
-                    <h1 class="display-5 fw-bolder">ㅇㅇㅇㅇ</h1>
+                    <div class="small mb-1" th:text="${reviewDetail.comments}"></div>
+                    <h1 class="display-5 fw-bolder" th:text="${reviewDetail.name}"></h1>
                     <div class="fs-5 mb-5">
-                        <span class="text-decoration-line-through">ㅇㅇㅇ</span>
-                        <span>ㅇㅇㅇ</span>
+                        <span class="text-decoration-line-through"></span>
+                        <span th:text="${reviewDetail.address1}"></span>
                     </div>
-                    <p class="lead">설명.........................................................</p>
                 </div>
             </div>
         </div>
@@ -50,13 +77,10 @@
                   placeholder="좋은 리뷰를 남겨주시면 큰 힘이 됩니다!"></textarea>
         </div>
         <p align="right">
-        <button class="btn btn-outline-dark flex-shrink-0 my-2" type="button">
-            <i class="me-0"></i>리뷰등록
-        </button>
+        <button class="btn btn-outline-dark flex-shrink-0 my-2" type="button" onclick="javascript:registReview()"><i class="me-0"></i>리뷰등록</button>
         </p>
     </form>
         </div>
     </section>
     </body>
-</th:block>
 </html>

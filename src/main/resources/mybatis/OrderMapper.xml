@@ -76,4 +76,52 @@
             o.user_no = #{userNo}
     </select>
 
+    <select id="getReviewDetail" parameterType="java.util.Map" resultType="com.example.ilinkcare.domain.Teacher">
+        SELECT
+            o.order_no
+          , t.name
+          , t.comments
+          , t.address1
+          , t.filepath
+          , t.filename
+          , t.teacher_no
+        FROM
+            ilinkcare.orders o
+        INNER JOIN
+            ilinkcare.teacher t
+            ON
+                t.teacher_no = o.teacher_no
+        WHERE
+            o.order_no = #{orderNo}
+
+    </select>
+
+    <select id="selectReviewCount" parameterType="java.util.Map" resultType="int">
+        SELECT COUNT(*)
+        FROM
+            ilinkcare.comment
+        WHERE
+            order_no = #{orderNo}
+        AND
+            teacher_no = #{teacherNo}
+        AND
+            user_no = #{userNo}
+    </select>
+
+    <update id="registReview" parameterType="java.util.Map" >
+        INSERT INTO ilinkcare.comment ( user_no
+                                      , teacher_no
+                                      , order_no
+                                      , content
+                                      , created_dt
+                                      , created_by
+        ) VALUES (
+                                        #{userNo}
+                                      , #{teacherNo}
+                                      , #{orderNo}
+                                      , #{reviewContents}
+                                      , now()
+                                      , #{userNo}
+        )
+    </update>
 </mapper>

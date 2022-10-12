@@ -14,5 +14,10 @@ public interface OrderService {
 
     List<Review> getReviewList(Map<String, Object> param);
 
+    Teacher getReviewDetail(Map<String, Object> param);
     Order getOrder(int order_no);
+
+    int selectReviewCount(Map<String, Object> param);
+
+    int registReview(Map<String, Object> param);
 }
