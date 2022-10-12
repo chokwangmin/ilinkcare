@@ -34,12 +34,22 @@ public class OrderController {
         return "orderlist";
     }
 
-    @PostMapping("/order") //localhost:8088/api/child/post
-    public String OrderCreate(Order order) {
+    @RequestMapping("/registOrder") //localhost:8088/api/child/post
+    @ResponseBody
+    public String OrderCreate(Order order, Authentication authentication) {
+        MemberSecurity userDetails = (MemberSecurity) authentication.getPrincipal();
+        order.setUser_no(userDetails.getUserNo());
 
-        orderService.OrderCreate(order);
+        int result = orderService.OrderCreate(order);
 
-        return "orderlist";
+        String msg = "";
+        if (result > 0) {
+            msg = "교육신청이 되었습니다.";
+        } else {
+            msg = "교육신청 도중 오류가 발생하였습니다.";
+        }
+
+        return msg;
 
     }
 

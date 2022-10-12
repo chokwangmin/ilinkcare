@@ -19,7 +19,7 @@ public interface OrderMapper {
     Order selectOrder(int order_no);
 
     //교육신청
-    void insertOrder(Order order);
+    int insertOrder(Order order);
 
     int selectReviewCount(Map<String, Object> param);
 

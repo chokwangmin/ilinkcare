@@ -11,7 +11,6 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-
 </head>
 
 <body>
@@ -19,6 +18,51 @@
 <section class="py-6" >
     <div class="container px-4 px-lg-6 mt-5">
         <th:block th:fragment="setOrder(order)">
+            <script>
+               window.onload = function(){
+                    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+                        //카카오 지도 발생
+                        new daum.Postcode({
+                            oncomplete: function(data) { //선택시 입력값 세팅
+                                document.getElementById("address_kakao").value = data.address; // 주소 넣기
+                            }
+                        }).open();
+                    });
+
+                    $('.input-daterange').datepicker({
+                       format: 'yyyy-mm-dd',
+                       autoclose: true
+                    });
+                }
+
+                function registEducation() {
+                     $.ajax({
+                        url : "/registOrder",
+                        method : "post",
+                        data: {
+                            "to_name" : $("#to_name").val()
+                          , "to_addr" : $("#address_kakao").val()
+                          , "name" : $("#name").val()
+                          , "age" : $("#age").val()
+                          , "care_time" : $("#menu option:selected").val()
+                          , "start_time" : $("#start_time").val()
+                          , "end_time" : $("#end_time").val()
+                          , "contents" : $("#contents").val()
+                          , "teacher_no" : $("#teacher_no").val()
+                        },
+                        success : function(result) {
+                            $(".modal").hide();
+                            alert(result);
+                            window.close();
+                        },
+                        error:function(request, status, ferror){
+                            $(".modal").hide();
+                            alert("교육신청 도중 오류가 발생하였습니다.");
+                            window.close();
+                        }
+                    });
+                }
+            </script>
         <!-- Core theme Deker (includes Bootstrap)-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
@@ -36,16 +80,15 @@
 
         <div class="login-wrapper py-6">
             <h2 align="center">교육신청</h2>
-            <form method="post" action="/order" id="login-form">
+            <form method="post" id="login-form" onsubmit="return false;">
                 <div class="input-group input-daterange">
-                    <input type="text" class="form-control input1" name="start_time" placeholder="교육시작일"readonly>
-                    <input type="text" class="form-control input2" name="end_time" placeholder="교육종료일" readonly>
+                    <input type="text" class="form-control input1" id="start_time" name="start_time" placeholder="교육시작일"readonly>
+                    <input type="text" class="form-control input2" id="end_time" name="end_time" placeholder="교육종료일" readonly>
                 </div>
-                <input type="hidden" name="user_no"  placeholder="고객번호">
-                <input type="text" name="to_name" placeholder="신청자">
+                <input type="text" id="to_name" name="to_name" placeholder="신청자">
                 <input type="text" id="address_kakao" name="to_addr"  placeholder="주소입력"/>
-                <input type="text" name="name" placeholder="자녀 이름">
-                <input type="text" name="age" placeholder="자녀 나이">
+                <input type="text" id="name" name="name" placeholder="자녀 이름">
+                <input type="text" id="age" name="age" placeholder="자녀 나이">
                 <select class="form-control" id="menu" name="care_time" required>
                     <option value="" disabled selected>교육시간 선택</option>
                     <option value="2">2시간</option>
@@ -54,27 +97,15 @@
                     <option value="8">8시간</option>
                 </select>
                 <div>
-		<textarea class="col-auto form-control" type="text" id="reviewContents"  placeholder="요청사항을 기재해주세요"></textarea>
+		        <textarea class="col-auto form-control" type="text" id="contents"  placeholder="요청사항을 기재해주세요"></textarea>
                 </div>
-                <input type="submit" value="교육신청하기">
+                <input id="orderBtn" type="submit" value="교육신청하기" onclick="javascript:registEducation()">
             </form>
         </div>
         </th:block>
     </div>
 </section>
-<script>
-window.onload = function(){
-    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
-        //카카오 지도 발생
-        new daum.Postcode({
-            oncomplete: function(data) { //선택시 입력값 세팅
-                document.getElementById("address_kakao").value = data.address; // 주소 넣기
-                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
-            }
-        }).open();
-    });
-}
-</script>
+
 
 </body>
 </html>

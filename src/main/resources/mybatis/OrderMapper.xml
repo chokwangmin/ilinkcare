@@ -3,7 +3,7 @@
 <mapper namespace="com.example.ilinkcare.mapper.OrderMapper">
 
     <!--    교육신청 찾기-->
-    <insert id="insertOrder" parameterType="com.example.ilinkcare.domain.Order">
+    <update id="insertOrder" parameterType="com.example.ilinkcare.domain.Order">
         INSERT INTO orders (
                             user_no
                           , to_name
@@ -21,8 +21,10 @@
                           , created_by
                           , update_dt
                           , update_by
+                          , contents
+                          , name
         ) values (
-                           #{user_no}
+                            #{user_no}
                           , #{to_name}
                           , #{to_addr}
                           , #{to_tel}
@@ -38,8 +40,10 @@
                           , #{created_by}
                           , #{update_dt}
                           , #{update_by}
+                          , #{contents}
+                          , #{name}
         )
-    </insert>
+    </update>
 
     <!-- 교육신청 찾기-->
     <select id="selectOrder" parameterType="int" resultType="com.example.ilinkcare.domain.Order">

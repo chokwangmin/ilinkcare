@@ -36,8 +36,8 @@ public class OrderServiceImp implements OrderService {
     }
 
     //주문생성
-    public void OrderCreate(Order order){
-        orderMapper.insertOrder(order);
+    public int OrderCreate(Order order){
+        return orderMapper.insertOrder(order);
     }
 
     @Override

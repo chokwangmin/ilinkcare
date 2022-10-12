@@ -55,17 +55,6 @@ $(function(){
 
   //달력
 
-   $(document).ready(function(){
-
-       $('.input-daterange').datepicker({
-           format: 'yyyy-mm-dd',
-           autoclose: true
-       });
-
-       });
-
-
-
 //  $("#wishlist").click(function(){
 //    $(".modal").fadeIn();
 //  });

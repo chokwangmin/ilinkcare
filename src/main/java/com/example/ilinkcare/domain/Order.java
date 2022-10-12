@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @ToString
 public class Order {
     private Long order_no;
-    private Long user_no;
+    private String user_no;
     private String name;
     private String t_name;
     private String to_name;
@@ -20,8 +20,8 @@ public class Order {
     private String comments;
     private Long child_no;
     private Long teacher_no;
-    private LocalDate start_time;
-    private LocalDate end_time;
+    private String start_time;
+    private String end_time;
     private String status;
     private String contract;
     private LocalDateTime contract_time;
@@ -29,4 +29,6 @@ public class Order {
     private Long created_by;
     private LocalDateTime update_dt;
     private Long update_by;
+    private String age;
+    private String contents;
 }

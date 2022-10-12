@@ -18,7 +18,7 @@ public interface OrderService {
     Order getOrder(int order_no);
 
     //주문생성
-    void OrderCreate (Order order);
+    int OrderCreate (Order order);
 
     int selectReviewCount(Map<String, Object> param);
 
