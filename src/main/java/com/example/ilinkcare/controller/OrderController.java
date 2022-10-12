@@ -1,5 +1,7 @@
 package com.example.ilinkcare.controller;
 
+import com.example.ilinkcare.domain.Child;
+import com.example.ilinkcare.domain.Member;
 import com.example.ilinkcare.domain.Order;
 import com.example.ilinkcare.domain.Teacher;
 import com.example.ilinkcare.service.OrderServiceImp;
@@ -22,11 +24,20 @@ public class OrderController {
 
     //주문리스트
     @GetMapping("/orderlist")
-    public String Order(Model model){
-        List<Order> orderList =  orderService.getOrderList();
-        model.addAttribute("orderList", orderList );
+    public String Order(Model model) {
+        List<Order> orderList = orderService.getOrderList();
+        model.addAttribute("orderList", orderList);
         return "orderlist";
     }
 
+
+    @PostMapping("/order") //localhost:8088/api/child/post
+    public String OrderCreate(@RequestBody Order order) {
+
+        orderService.OrderCreate(order);
+
+        return "";
+
+    }
 
 }

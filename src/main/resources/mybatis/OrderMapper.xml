@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.ilinkcare.mapper.OrderMapper">
 
-    <!--    교육신청 찾기-->
+    <!--    교육신청-->
             <insert id="insertOrder" parameterType="com.example.ilinkcare.domain.Order">
                 INSERT INTO orders ( user_no
                                   , to_name
@@ -10,7 +10,6 @@
                                   , to_tel
                                   , care_time
                                   , child_no
-                                  , update_dt
                                   , teacher_no
                                   , start_time
                                   , end_time
@@ -21,14 +20,14 @@
                                   , created_by
                                   , update_dt
                                   , update_by
+
                 ) values (
-                                  , #{user_no}
+                                    #{user_no}
                                   , #{to_name}
                                   , #{to_addr}
                                   , #{to_tel}
                                   , #{care_time}
                                   , #{child_no}
-                                  , #{update_dt}
                                   , #{teacher_no}
                                   , #{start_time}
                                   , #{end_time}

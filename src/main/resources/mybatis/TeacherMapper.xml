@@ -52,13 +52,25 @@
     <select id="findAllTeacher" resultType="Teacher">
         SELECT *
         FROM teacher
-        limit #{limitStart}, #{limitEnd};
+        limit #{limitStart}, #{limitEnd}
+
     </select>
 
     <select id="findAllTeacherCount" resultType="int">
         SELECT COUNT(*)
         FROM teacher
     </select>
+
+<!--    지역검색기능-->
+<!--    <select id="findAllTeachers" resultType="Teacher">-->
+<!--        SELECT *-->
+<!--        FROM teacher-->
+<!--        WHERE address1 LIKE '%' || #{} || '%'&ndash;&gt;-->
+<!--        limit #{limitStart}, #{limitEnd}-->
+
+<!--    </select>-->
+
+
 
 
     <!-- 교사 찾기-->

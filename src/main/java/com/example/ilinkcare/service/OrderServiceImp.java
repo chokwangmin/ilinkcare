@@ -1,5 +1,6 @@
 package com.example.ilinkcare.service;
 
+import com.example.ilinkcare.domain.Child;
 import com.example.ilinkcare.domain.Order;
 import com.example.ilinkcare.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,11 @@ public class OrderServiceImp implements OrderService {
     public Order getOrder(int order_no){
 
         return orderMapper.selectOrder(order_no);
+    }
+
+    //주문생성
+    public void OrderCreate(Order order){
+        orderMapper.insertOrder(order);
     }
 
 }
