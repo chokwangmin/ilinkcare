@@ -69,6 +69,12 @@
         <!-- Section-->
         <section class="py-6">
             <div class="container px-4 px-lg-5 mt-5">
+                <div class="px-lg-5" >
+                    <form action="@{index}" method="get">
+                        <input  type="text" placeholder="지역을 입력하세요." name="searchKeyword">
+                        <button type="submit">검색</button>
+                    </form>
+                </div>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5" th:each="teacher, i : ${teachers}">
                         <div class="card h-100" href="#!" >

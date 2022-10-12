@@ -34,6 +34,15 @@ public class OrderController {
         return "orderlist";
     }
 
+    @PostMapping("/order") //localhost:8088/api/child/post
+    public String OrderCreate(Order order) {
+
+        orderService.OrderCreate(order);
+
+        return "";
+
+    }
+
     @GetMapping("/reviewlist")
     public String reviewlist(Model model, Authentication authentication){
         MemberSecurity userDetails = (MemberSecurity) authentication.getPrincipal();

@@ -10,7 +10,6 @@
                           , to_tel
                           , care_time
                           , child_no
-                          , update_dt
                           , teacher_no
                           , start_time
                           , end_time
@@ -28,7 +27,6 @@
                           , #{to_tel}
                           , #{care_time}
                           , #{child_no}
-                          , #{update_dt}
                           , #{teacher_no}
                           , #{start_time}
                           , #{end_time}

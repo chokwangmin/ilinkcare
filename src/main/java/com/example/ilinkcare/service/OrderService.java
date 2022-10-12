@@ -17,6 +17,9 @@ public interface OrderService {
     Teacher getReviewDetail(Map<String, Object> param);
     Order getOrder(int order_no);
 
+    //주문생성
+    void OrderCreate (Order order);
+
     int selectReviewCount(Map<String, Object> param);
 
     int registReview(Map<String, Object> param);

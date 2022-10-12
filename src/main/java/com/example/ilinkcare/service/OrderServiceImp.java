@@ -6,6 +6,7 @@ import com.example.ilinkcare.domain.Teacher;
 import com.example.ilinkcare.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.ilinkcare.domain.Child;
 
 import java.util.List;
 import java.util.Map;
@@ -32,6 +33,11 @@ public class OrderServiceImp implements OrderService {
     public Order getOrder(int order_no){
 
         return orderMapper.selectOrder(order_no);
+    }
+
+    //주문생성
+    public void OrderCreate(Order order){
+        orderMapper.insertOrder(order);
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.example.ilinkcare.domain.Order;
 import com.example.ilinkcare.domain.Review;
 import com.example.ilinkcare.domain.Teacher;
 import org.apache.ibatis.annotations.Mapper;
+import com.example.ilinkcare.domain.Child;
 
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,9 @@ public interface OrderMapper {
     List<Review> getReviewList(Map<String, Object> param);
     Teacher getReviewDetail(Map<String, Object> param);
     Order selectOrder(int order_no);
+
+    //교육신청
+    void insertOrder(Order order);
 
     int selectReviewCount(Map<String, Object> param);
 
