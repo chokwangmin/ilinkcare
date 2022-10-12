@@ -3,59 +3,77 @@
 <mapper namespace="com.example.ilinkcare.mapper.OrderMapper">
 
     <!--    교육신청 찾기-->
-            <insert id="insertOrder" parameterType="com.example.ilinkcare.domain.Order">
-                INSERT INTO orders ( user_no
-                                  , to_name
-                                  , to_addr
-                                  , to_tel
-                                  , care_time
-                                  , child_no
-                                  , update_dt
-                                  , teacher_no
-                                  , start_time
-                                  , end_time
-                                  , status
-                                  , contract
-                                  , contract_time
-                                  , created_dt
-                                  , created_by
-                                  , update_dt
-                                  , update_by
-                ) values (
-                                  , #{user_no}
-                                  , #{to_name}
-                                  , #{to_addr}
-                                  , #{to_tel}
-                                  , #{care_time}
-                                  , #{child_no}
-                                  , #{update_dt}
-                                  , #{teacher_no}
-                                  , #{start_time}
-                                  , #{end_time}
-                                  , #{status}
-                                  , #{contract}
-                                  , #{contract_time}
-                                  , #{created_dt}
-                                  , #{created_by}
-                                  , #{update_dt}
-                                  , #{update_by}
-                )
-            </insert>
+    <insert id="insertOrder" parameterType="com.example.ilinkcare.domain.Order">
+        INSERT INTO orders ( user_no
+                          , to_name
+                          , to_addr
+                          , to_tel
+                          , care_time
+                          , child_no
+                          , update_dt
+                          , teacher_no
+                          , start_time
+                          , end_time
+                          , status
+                          , contract
+                          , contract_time
+                          , created_dt
+                          , created_by
+                          , update_dt
+                          , update_by
+        ) values (
+                          , #{user_no}
+                          , #{to_name}
+                          , #{to_addr}
+                          , #{to_tel}
+                          , #{care_time}
+                          , #{child_no}
+                          , #{update_dt}
+                          , #{teacher_no}
+                          , #{start_time}
+                          , #{end_time}
+                          , #{status}
+                          , #{contract}
+                          , #{contract_time}
+                          , #{created_dt}
+                          , #{created_by}
+                          , #{update_dt}
+                          , #{update_by}
+        )
+    </insert>
 
-    <!--    교육신청 찾기-->
-        <select id="selectOrder" parameterType="int" resultType="order">
-            SELECT o.order_no ,t.comments ,c.name ,t.name AS t_name ,o.start_time ,o.end_time  from orders o
-            INNER JOIN teacher AS t on o.teacher_no = t.teacher_no
-            LEFT JOIN child AS c on o.user_no = c.user_no
-            WHERE o.order_no = #{order_no}
-        </select>
+    <!-- 교육신청 찾기-->
+    <select id="selectOrder" parameterType="int" resultType="com.example.ilinkcare.domain.Order">
+        SELECT o.order_no ,t.comments ,c.name ,t.name AS t_name ,o.start_time ,o.end_time  from orders o
+        INNER JOIN teacher AS t on o.teacher_no = t.teacher_no
+        LEFT JOIN child AS c on o.user_no = c.user_no
+        WHERE o.order_no = #{order_no}
+    </select>
+
     <!--    교육신청 리스트-->
-        <select id="findAllOrder" resultType="Order">
-            SELECT o.order_no ,t.comments ,c.name ,t.name AS t_name ,o.start_time ,o.end_time  from orders o
-            INNER JOIN teacher AS t on o.teacher_no = t.teacher_no
-            LEFT JOIN child AS c on o.user_no = c.user_no
-        </select>
+    <select id="findAllOrder" parameterType="java.util.Map" resultType="com.example.ilinkcare.domain.Order">
+        SELECT o.order_no ,t.comments ,c.name ,t.name AS t_name ,o.start_time ,o.end_time  from orders o
+        INNER JOIN teacher AS t on o.teacher_no = t.teacher_no
+        LEFT JOIN child AS c on o.user_no = c.user_no
+        WHERE o.user_no = #{userNo}
+    </select>
 
-
+    <select id="getReviewList" parameterType="java.util.Map" resultType="com.example.ilinkcare.domain.Review">
+        SELECT
+              c.comment_no
+            , o.order_no
+            , t.comments
+            , c.content
+            , t.name as t_name
+            , date_format(c.created_dt, '%Y-%m-%d %H:%i') as create_dt
+        FROM
+            ilinkcare.orders o
+        INNER JOIN
+            ilinkcare.teacher t ON t.teacher_no = o.teacher_no
+        LEFT JOIN
+            ilinkcare.comment c ON c.order_no = o.order_no
+        WHERE
+            o.user_no = #{userNo}
+    </select>
 
 </mapper>

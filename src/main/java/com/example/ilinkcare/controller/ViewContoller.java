@@ -60,13 +60,6 @@ public class ViewContoller {
         return "profileview";
     }
 
-    @GetMapping("/reviewlist")
-    public String reviewlist(){
-
-        return "reviewlist";
-    }
-
-
     @GetMapping("/memberupdate")
     public String MemberUpdate(){
 
