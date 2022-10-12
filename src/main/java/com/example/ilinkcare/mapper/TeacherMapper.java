@@ -31,5 +31,5 @@ public interface TeacherMapper {
 
     int selectWishListTeacherAllCnt(Map<String, Object> param);
 
-    List<Teacher> selectWithList(Map<String, Object> param);
+    List<Teacher> selectWishList(Map<String, Object> param);
 }

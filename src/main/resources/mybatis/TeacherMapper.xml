@@ -120,17 +120,21 @@
             user_no = #{userNo}
     </select>
 
-    <select id="selectWithList" parameterType="java.util.Map" resultType="com.example.ilinkcare.domain.Teacher">
+    <select id="selectWishList" parameterType="java.util.Map" resultType="com.example.ilinkcare.domain.Teacher">
         SELECT
-            t.comments , t.name AS t_name
+            t.name
+          , t.comments
+          , t.address1
+          , t.filepath
+          , t.filename
         FROM
             ilinkcare.wishlist w
         INNER JOIN
             ilinkcare.teacher AS t
             ON
-                w.teacher_no = w.teacher_no
+                w.teacher_no = t.teacher_no
         WHERE
-            w.user_no = #{orderNo}
+            w.user_no = #{userNo}
     </select>
 
 </mapper>

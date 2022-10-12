@@ -164,8 +164,8 @@ public class TeacherController {
         Map<String, Object> param = new HashMap<String, Object>();
         param.put("userNo", userDetails.getUserNo());
 
-        List<Teacher> withList = teacherService.selectWithList(param);
-        modelMap.put("withList", withList);
+        List<Teacher> wishList = teacherService.selectWishList(param);
+        modelMap.put("wishList", wishList);
 
         return "wishlist";
     }

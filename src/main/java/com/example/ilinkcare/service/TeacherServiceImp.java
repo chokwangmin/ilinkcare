@@ -64,8 +64,8 @@ public class TeacherServiceImp implements TeacherService {
     }
 
     @Override
-    public List<Teacher> selectWithList(Map<String, Object> param) {
-        return teacherMapper.selectWithList(param);
+    public List<Teacher> selectWishList(Map<String, Object> param) {
+        return teacherMapper.selectWishList(param);
     }
 
 

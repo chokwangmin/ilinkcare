@@ -50,6 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 //.anyRequest().authenticated()
+                .antMatchers("/wishlist").authenticated()
                 .antMatchers("/mypage").authenticated()
                 .and()
                 .formLogin()

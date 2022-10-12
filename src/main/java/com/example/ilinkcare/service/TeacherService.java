@@ -28,7 +28,7 @@ public interface TeacherService {
     // 관심등록 전체개수 조회.
     int selectWishListTeacherAllCnt(Map<String, Object> param);
 
-    List<Teacher> selectWithList(Map<String, Object> param);
+    List<Teacher> selectWishList(Map<String, Object> param);
 
 }
 
