@@ -32,7 +32,7 @@ public class OrderController {
 
 
     @PostMapping("/order") //localhost:8088/api/child/post
-    public String OrderCreate(@RequestBody Order order) {
+    public String OrderCreate(Order order) {
 
         orderService.OrderCreate(order);
 
