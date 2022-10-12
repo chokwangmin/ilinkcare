@@ -5,6 +5,7 @@
         SELECT *
         FROM child
         WHERE user_no = #{parentNo}
+        limit 1
     </select>
 
     <select id="findAll" resultType="Child">

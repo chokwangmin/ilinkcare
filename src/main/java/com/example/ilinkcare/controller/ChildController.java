@@ -1,10 +1,12 @@
 package com.example.ilinkcare.controller;
 
 import com.example.ilinkcare.domain.Child;
+import com.example.ilinkcare.domain.MemberSecurity;
 import com.example.ilinkcare.domain.Order;
 import com.example.ilinkcare.mapper.ChildMapper;
 import com.example.ilinkcare.service.ChildService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -29,9 +31,13 @@ public class ChildController {
 
     }
     @GetMapping("/childinfo")
-    public String childinfo(Model model){
+    public String childinfo(Model model , Authentication authentication){
 
-        List<Child> ChildInfo = childService.ChildInfo(12);
+        MemberSecurity userDetails = (MemberSecurity) authentication.getPrincipal();
+
+        int userNo = Integer.parseInt(userDetails.getUserNo());
+
+        List<Child> ChildInfo = childService.ChildInfo(userNo);
         model.addAttribute("childinfo", ChildInfo );
         return "childinfo";
 

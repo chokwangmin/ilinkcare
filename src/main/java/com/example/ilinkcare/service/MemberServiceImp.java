@@ -41,8 +41,17 @@ public class MemberServiceImp implements MemberService, UserDetailsService {
         return rtnVal;
     }
 
-    public void MemberUpdate(Member member){
+    @Override
+    public void MemberUpdate(Member member) {
+        String Password = member.getPassword();
+        Password = new BCryptPasswordEncoder().encode(Password);
+        member.setPassword(Password);
+
         memberMapper.updateMember(member);
+    }
+
+    public Member MemberSelect(Map<String, Object> param){
+        return memberMapper.MemberSelect(param);
     }
 
     @Override
