@@ -22,6 +22,10 @@ public interface TeacherService {
     //List<Teacher> GetTeachersByRegion( );
 
     void CreateWishlist(Wishlist wishlist);
+
+    int registInterest(Map<String, Object> param);
+
+    int selectInterestTeacherCnt(Map<String, Object> param);
 }
 
 

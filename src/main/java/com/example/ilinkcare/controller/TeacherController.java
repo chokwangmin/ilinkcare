@@ -1,13 +1,12 @@
 package com.example.ilinkcare.controller;
 
 
-import com.example.ilinkcare.domain.CommentDto;
-import com.example.ilinkcare.domain.Member;
-import com.example.ilinkcare.domain.Teacher;
-import com.example.ilinkcare.domain.Wishlist;
+import com.example.ilinkcare.domain.*;
 import com.example.ilinkcare.service.TeacherServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -120,6 +119,40 @@ public class TeacherController {
 
         return "";
     }
+
+    @RequestMapping("/registInterest")
+    @ResponseBody
+    public String registInterest(@RequestParam String teacherNo, Authentication authentication){
+        String msg = "";
+
+        try {
+            MemberSecurity userDetails = (MemberSecurity) authentication.getPrincipal();
+
+            Map<String, Object> param = new HashMap<String, Object>();
+            param.put("teacherNo", teacherNo);
+            param.put("userNo", userDetails.getUserNo());
+
+            int count = teacherService.selectInterestTeacherCnt(param);
+
+            if (count == 0) {
+                // 관심등록
+                int result = teacherService.registInterest(param);
+                if (result > 0) {
+                    msg = "관심등록이 완료되었습니다.";
+                } else {
+                    msg = "관심등록이 실패하였습니다.";
+                }
+            } else {
+                msg = "이미 관심으로 등록하신 강사입니다.";
+            }
+
+        } catch (Exception e) {
+            msg = "관심등록 중 오류가 발생하였습니다.";
+        }
+
+        return msg;
+    }
+
     /**
      * 관심교사 등록
      */

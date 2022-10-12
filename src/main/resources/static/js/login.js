@@ -1,5 +1,5 @@
 
-function showPopUp(teacharNo) {
+function showPopUp(teacherNo) {
 	//창 크기 지정
 	var width = 1000;
 	var height = 1500;
@@ -12,10 +12,25 @@ function showPopUp(teacharNo) {
 	var windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=yes, status=yes, resizable=yes, titlebar=yes';
 
     	//연결하고싶은url
-    	const url = "/teacher/" + teacharNo;
+    	const url = "/teacher/" + teacherNo;
 
 	//등록된 url 및 window 속성 기준으로 팝업창을 연다.
 	window.open(url, "hello popup", windowStatus);
+}
+
+function registInterest(teacherNo) {
+    $.ajax({
+        url : "/registInterest",
+        data: {"teacherNo" : teacherNo},
+        success : function(result) {
+        console.log(result);
+            alert(result);
+        },
+        error:function(request, status, ferror){
+            console.log(request);
+            alert("관심등록 중 오류가 발생하였습니다.");
+        }
+    });
 }
 
 //  프로필 모달팝업

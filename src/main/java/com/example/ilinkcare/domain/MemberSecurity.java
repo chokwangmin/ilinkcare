@@ -32,6 +32,11 @@ public class MemberSecurity implements UserDetails {
         return user.getUsername();
     }
 
+    public String getUserId() {
+        return user.getUserid();
+    }
+
+    public String getUserNo() { return user.getUserno(); }
     //계정이 만료되지 않았는지 리턴 (true: 만료안됨)
     @Override
     public boolean isAccountNonExpired() {

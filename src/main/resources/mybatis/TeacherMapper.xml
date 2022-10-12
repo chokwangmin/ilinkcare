@@ -89,5 +89,25 @@
         )
     </select>
 
+    <update id="registInterest" parameterType="java.util.Map">
+        INSERT INTO ilinkcare.wishlist ( teacher_no
+                                       , user_no
+                                       , created_dt
+        ) values (
+                                         #{teacherNo}
+                                       , #{userNo}
+                                       , now()
+        )
+    </update>
 
+    <select id="selectInterestTeacherCnt" parameterType="java.util.Map" resultType="int">
+        SELECT COUNT(*)
+        FROM
+            ilinkcare.wishlist
+        WHERE 1 = 1
+        AND
+            teacher_no = #{teacherNo}
+        AND
+            user_no = #{userNo}
+    </select>
 </mapper>
