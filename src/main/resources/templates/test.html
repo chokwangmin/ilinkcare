@@ -16,7 +16,9 @@
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/test.js"></script>
 
-
+    <tr th:each="child : ${childList}">
+        <td th:text="${child.name}"></td>
+    </tr>
 </head>
 <body>
 

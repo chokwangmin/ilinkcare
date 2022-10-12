@@ -120,12 +120,13 @@ public class TeacherController {
 
         return "";
     }
+
     /**
      * 관심교사 등록
      */
 
     @PostMapping("/wishlist")
-    public String WishListCreate(@RequestBody Wishlist wishlist){
+    public String WishListCreate(Wishlist wishlist){
         teacherService.CreateWishlist(wishlist);
         return "";
     }

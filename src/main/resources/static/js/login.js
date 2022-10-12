@@ -1,11 +1,11 @@
-
+//교사 프로필 팝업
 function showPopUp(teacharNo) {
 	//창 크기 지정
 	var width = 1000;
-	var height = 1500;
+	var height = 800;
 
 	//pc화면기준 가운데 정렬
-	var left = (window.screen.width / 4) - (width/2);
+	var left = (window.screen.width / 2) - (width/2);
 	var top = (window.screen.height / 4);
 
     	//윈도우 속성 지정
@@ -21,9 +21,9 @@ function showPopUp(teacharNo) {
 //  프로필 모달팝업
 $(function(){
 
-  $("#wishlist").click(function(){
-    $(".modal").fadeIn();
-  });
+//  $("#wishlist").click(function(){
+//    $(".modal").fadeIn();
+//  });
 
   $(".modal-close").click(function(){
     $(".modal").fadeOut();
