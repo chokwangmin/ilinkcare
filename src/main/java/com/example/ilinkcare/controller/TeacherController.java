@@ -132,18 +132,23 @@ public class TeacherController {
             param.put("teacherNo", teacherNo);
             param.put("userNo", userDetails.getUserNo());
 
-            int count = teacherService.selectInterestTeacherCnt(param);
+            int allCount = teacherService.selectInterestTeacherAllCnt(param);
+            int targetCount = teacherService.selectInterestTeacherCnt(param);
 
-            if (count == 0) {
-                // 관심등록
-                int result = teacherService.registInterest(param);
-                if (result > 0) {
-                    msg = "관심등록이 완료되었습니다.";
+            if (allCount < 4) {
+                if (targetCount == 0) {
+                    // 관심등록
+                    int result = teacherService.registInterest(param);
+                    if (result > 0) {
+                        msg = "관심등록이 완료되었습니다.";
+                    } else {
+                        msg = "관심등록이 실패하였습니다.";
+                    }
                 } else {
-                    msg = "관심등록이 실패하였습니다.";
+                    msg = "이미 관심으로 등록하신 강사입니다.";
                 }
             } else {
-                msg = "이미 관심으로 등록하신 강사입니다.";
+                msg = "관심강사는 최대 " + allCount + "명까지 가능합니다.";
             }
 
         } catch (Exception e) {

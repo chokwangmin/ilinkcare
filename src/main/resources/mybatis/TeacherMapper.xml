@@ -110,4 +110,14 @@
         AND
             user_no = #{userNo}
     </select>
+
+    <select id="selectInterestTeacherAllCnt" parameterType="java.util.Map" resultType="int">
+        SELECT COUNT(*)
+        FROM
+            ilinkcare.wishlist
+        WHERE 1 = 1
+        AND
+            user_no = #{userNo}
+    </select>
+
 </mapper>

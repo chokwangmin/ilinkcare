@@ -26,6 +26,9 @@ public interface TeacherService {
     int registInterest(Map<String, Object> param);
 
     int selectInterestTeacherCnt(Map<String, Object> param);
+
+    int selectInterestTeacherAllCnt(Map<String, Object> param);
+
 }
 
 

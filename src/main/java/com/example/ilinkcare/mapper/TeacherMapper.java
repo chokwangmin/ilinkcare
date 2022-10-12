@@ -29,4 +29,5 @@ public interface TeacherMapper {
 
     int selectInterestTeacherCnt(Map<String, Object> param);
 
+    int selectInterestTeacherAllCnt(Map<String, Object> param);
 }
