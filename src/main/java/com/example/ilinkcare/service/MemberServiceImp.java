@@ -41,8 +41,13 @@ public class MemberServiceImp implements MemberService, UserDetailsService {
         return rtnVal;
     }
 
-    public void MemberUpdate(Member member){
-        memberMapper.updateMember(member);
+    @Override
+    public void MemberUpdate(Member member) {
+
+    }
+
+    public Member MemberSelect(Map<String, Object> param){
+        return memberMapper.MemberSelect(param);
     }
 
     @Override

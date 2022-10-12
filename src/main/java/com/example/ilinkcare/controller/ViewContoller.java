@@ -60,10 +60,10 @@ public class ViewContoller {
         return "profileview";
     }
 
-    @GetMapping("/memberupdate")
-    public String MemberUpdate(){
-
-        return "memberupdate";
-    }
+//    @GetMapping("/memberupdate")
+//    public String MemberUpdate(){
+//
+//        return "memberupdate";
+//    }
 
 }
