@@ -51,11 +51,12 @@ public class MemberController {
         return "memberupdate";
     }
     @PostMapping("/update")
-    public String MemberUpdates(Member member){
+    public String MemberUpdates(RedirectAttributes redirectAttributes, Member member){
 
-        memberService.MemberUpdate(member);
+        String RtnVal = memberService.MemberUpdate(member);
+        redirectAttributes.addAttribute("resultMsg", RtnVal);
 
-        return "mypage";
+        return "redirect:/mypage";
     }
 
 }

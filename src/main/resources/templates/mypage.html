@@ -27,7 +27,17 @@
 
 <!-- Navigation-->
 <div th:insert="~{/header :: headerFragment}"></div>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+            var resultMsg = /*[[${resultMsg}]]*/ 'default';
+        /*]]>*/
 
+        history.pushState(null, '마이페이지', '/mypage');
+
+        if (resultMsg != null && resultMsg != '') {
+            alert(resultMsg);
+        }
+    </script>
 <section class="py-6">
 
     <div class="nav-mitem">

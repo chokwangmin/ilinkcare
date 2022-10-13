@@ -47,12 +47,21 @@ public class MemberServiceImp implements MemberService, UserDetailsService {
     }
 
     @Override
-    public void MemberUpdate(Member member) {
+    public String MemberUpdate(Member member) {
         String Password = member.getPassword();
         Password = new BCryptPasswordEncoder().encode(Password);
         member.setPassword(Password);
 
-        memberMapper.updateMember(member);
+        int result = memberMapper.updateMember(member);
+        String msg = "";
+
+        if (result > 0) {
+            msg = "회원정보가 수정되었습니다.";
+        } else {
+            msg = "회원정보가 수정이 실패하였습니다.";
+        }
+        return msg;
+
     }
 
     public Member MemberSelect(Map<String, Object> param){

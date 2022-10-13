@@ -36,7 +36,8 @@ public class ViewContoller {
     }
     /*마이페이지*/
     @GetMapping("/mypage")
-    public String mypage(){
+    public String mypage(Model model, @RequestParam(value = "resultMsg", required = false) String resultMsg){
+        model.addAttribute("resultMsg", resultMsg);
 
         return "mypage";
     }

@@ -11,7 +11,7 @@ public interface MemberMapper {
     // 고객 회원가입
     int insertMember(Member member);
 
-    void updateMember(Member member);
+    int updateMember(Member member);
 
     int dupUserId(Member member);
     

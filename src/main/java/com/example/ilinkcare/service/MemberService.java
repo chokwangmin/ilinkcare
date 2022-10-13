@@ -8,7 +8,7 @@ public interface MemberService {
 
     String MemberJoin(Member member);
 
-    void MemberUpdate(Member member);
+    String MemberUpdate(Member member);
 
     Member MemberSelect(Map<String, Object> param);
 }
