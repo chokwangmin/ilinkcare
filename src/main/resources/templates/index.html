@@ -50,7 +50,7 @@
         <!-- Section-->
         <section class="py-6">
             <div class="container px-4 px-lg-5 mt-5">
-                <div class="px-lg-5" >
+                <div class="px-lg-5 searchs"  >
                     <input class="btn btn-outline-darks mt-auto"  type="text" placeholder="지역을 입력하세요." id="searchKeyword" name="searchKeyword" th:value="${searchKeyword}" th:onkeypress="|javascript:if(event.keyCode==13){search(${nowPage})}|">
                     <button id="searchBtn" class="h5" th:onclick="|javascript:search(${nowPage})|">&nbsp검색</button>
                 </div>
