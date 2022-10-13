@@ -48,7 +48,7 @@
             <table>
                 <thead>
                 <tr>
-                    <th>주문번호11</th>
+                    <th>주문번호</th>
                     <th>프로그램명</th>
                     <th>교사명</th>
                     <th>리뷰내용</th>
@@ -59,12 +59,12 @@
                 </thead>
                 <tbody>
                 <tr th:each="review : ${reviewList}">
-                    <td class="p-price first-row" th:text="${review.order_no}"></td>
-                    <td class="p-price first-row" th:text="${review.comments}"></td>
-                    <td class="total-price first-row" th:text="${review.t_name}"></td>
+                    <td class=" first-row" style="color:black;" th:text="${review.order_no}"></td>
+                    <td class=" first-row" style="color:black;" th:text="${review.comments}"></td>
+                    <td class=" first-row" style="color:black;"  th:text="${review.t_name}"></td>
                     <td class="total-price first-row" th:text="${review.content}"></td>
-                    <td class="total-price first-row" th:text="${review.create_dt}"></td>
-                    <td class="total-price first-row"><a th:if="${review.comment_no == null}" href="#!" th:attr="onclick=|javascript:reviewLayer('${review.order_no}')|">리뷰작성하기</a></td>
+                    <td class=" first-row" style="color:black;"  th:text="${review.create_dt}"></td>
+                    <td class=" first-row"><a th:if="${review.comment_no == null}" href="#!" th:attr="onclick=|javascript:reviewLayer('${review.order_no}')|">리뷰작성하기</a></td>
                     <td class="close-td first-row"><i class="ti-close"></i></td>
                 </tr>
                 </tbody>

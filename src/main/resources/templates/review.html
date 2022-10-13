@@ -58,13 +58,19 @@
 
                 <div class="col-md-6"><img class="card-img-bottom mb-5 mb-md-0" style="height : 254px;" th:src="@{img/} + ${reviewDetail.filename}" onerror="this.src='https://dummyimage.com/450x300/dee2e6/6c757d.jpg';" alt="..." /></div>
                 <div class="col-md-6">
-                    <div class="small mb-1" th:text="${reviewDetail.comments}"></div>
-                    <h1 class="display-5 fw-bolder" th:text="${reviewDetail.name}"></h1>
-                    <div class="fs-5 mb-5">
-                        <span class="text-decoration-line-through"></span>
-                        <span th:text="${reviewDetail.address1}"></span>
-                    </div>
-                </div>
+                    <div class="large mb-3"><a class="display-5 fw-bolder" th:text="${reviewDetail.name}"></a></div>
+                    <div class="display-8 fw-bolder mb-1">프로그램</div>
+                    <p class="mb-4" th:text="${reviewDetail.comments}"></p>
+                    <div class="display-8 fw-bolder mb-1">신청가능 지역</div>
+                    <p class="mb-4" th:text="${reviewDetail.address1}"></p>
+                     <div class="d-flex">
+<!--                    <div class="small mb-1" th:text="${reviewDetail.comments}"></div>-->
+<!--                    <h1 class="display-5 fw-bolder" th:text="${reviewDetail.name}"></h1>-->
+<!--                    <div class="fs-5 mb-5">-->
+<!--                        <span class="text-decoration-line-through"></span>-->
+<!--                        <span th:text="${reviewDetail.address1}"></span>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </section>
