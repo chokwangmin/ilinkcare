@@ -15,65 +15,44 @@
         <link href="/css/styles.css" rel="stylesheet" />
         <script type="text/javascript" src="js/login.js"></script>
         <script type="text/javascript" src="js/test.js"></script>
+        <script>
+            function search(nowPage) {
+                let link = "/index";
+                if (nowPage != null && nowPage != '' && nowPage != '1') {
+                    link += "?page=" + nowPage;
+                }
+
+                if ($("#searchKeyword").val() != null && $("#searchKeyword").val() != '') {
+                    if (link.indexOf('?') > -1) {
+                        link += "&searchKeyword=" + $("#searchKeyword").val();
+                    } else {
+                        link += "?searchKeyword=" + $("#searchKeyword").val();
+                    }
+                }
+                location.href = link;
+            }
+        </script>
     </head>
     <body>
 
         <!-- Navigation-->
         <div th:insert="~{/header :: headerFragment}"></div>
-<!--        <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-<!--            <div class="px-lg-5">-->
-<!--            <a class="navbar-brand fw-bolder" href="/index" > <img src="img/logo4.png"  alt="logo" /></a>-->
-<!--            </div>-->
-<!--            <div class="container px-4 px-lg-7 h4">-->
-<!--                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>-->
-<!--                <div class="collapse navbar-collapse" id="navbarSupportedContent" >-->
-<!--                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-7">-->
-<!--                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/login">로그인</a></li>-->
-<!--                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/join">회원가입</a></li>-->
-<!--                        <li class="nav-item" sec:authorize="hasRole('ROLE_USER')"><a class="nav-link active" href="/wishlist">관심교사</a></li>-->
-<!--                        <li class="nav-item" sec:authorize="hasRole('ROLE_USER')"><a class="nav-link active" aria-current="page" href="/mypage">마이페이지</a></li>-->
-<!--                    </ul>-->
-<!--&lt;!&ndash;                    <form class="d-flex">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="btn btn-outline-dark" type="submit">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <i class="bi-cart-fill me-1"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;                            Cart&ndash;&gt;-->
-<!--&lt;!&ndash;                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </button>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </form>&ndash;&gt;-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </nav>-->
         <!-- Header-->
         <header class="py-4">
             <header class="py-6 bg-yellow2" style="background-image: url('https://live.staticflickr.com/65535/52371276780_e7fe8018da_k.jpg') ;background-size: 1428px">
-<!--                <header class="py-6 bg-image-full" style="background-image: url('img/plan.jpg'); background-size: contain">-->
                 <div class="text-center my-5" >
                     <h1 class="text-white fs-3 fw-bolder" >아이 돌봄 서비스 </h1>
                     <p class="text-white-50 mb-0"></p>
                 </div>
             </header>
-<!--            <div class="container">-->
-<!--                <img class= "header-img" src="https://live.staticflickr.com/65535/52371276780_e7fe8018da_k.jpg"/>-->
-<!--                <div class="text-center text-white">-->
-<!--                    <h1 class="display-4 fw-bolder">Shop in style</h1>-->
-<!--                    <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>-->
-<!--                </div>-->
-
-<!--              <tr th:each="teacher : ${teachers}">-->
-<!--                  <a th:text="${teacher.name}" th:href="@{/teacher/{id}(id=${teacher.teacher_no})}"><a/>-->
-
-<!--            </tr>-->
-
         </header>
 
         <!-- Section-->
         <section class="py-6">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="px-lg-5" >
-                    <form action="@{index}" method="get">
-                        <input class="btn btn-outline-darks mt-auto"  type="text" placeholder="지역을 입력하세요." name="searchKeyword">
-                        <button type="submit" class="h5">&nbsp검색</button>
-                    </form>
+                    <input class="btn btn-outline-darks mt-auto"  type="text" placeholder="지역을 입력하세요." id="searchKeyword" name="searchKeyword" th:value="${searchKeyword}" th:onkeypress="|javascript:if(event.keyCode==13){search(${nowPage})}|">
+                    <button id="searchBtn" class="h5" th:onclick="|javascript:search(${nowPage})|">&nbsp검색</button>
                 </div>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5" th:each="teacher, i : ${teachers}">
@@ -90,13 +69,6 @@
                                     <!-- Product name-->
                                     <h5 class="fw-bolder" th:text="${teacher.address1}"></h5>
                                     <!-- Product reviews-->
-<!--                                    <div class="d-flex justify-content-center small text-warning mb-2">-->
-<!--                                        <div class="bi-star-fill"></div>-->
-<!--                                        <div class="bi-star-fill"></div>-->
-<!--                                        <div class="bi-star-fill"></div>-->
-<!--                                        <div class="bi-star-fill"></div>-->
-<!--                                        <div class="bi-star-fill"></div>-->
-<!--                                    </div>-->
                                     <!-- Product price-->
                                     <span class="fw-bolder"><a th:text="${teacher.name}" href="#"></a></span>
                                 </div>

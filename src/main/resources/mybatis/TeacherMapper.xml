@@ -52,12 +52,22 @@
     <select id="findAllTeacher" resultType="Teacher">
         SELECT *
         FROM teacher
+        WHERE 1 = 1
+        <if test = 'searchKeyword != null and !"".equals(searchKeyword) '>
+            AND
+                address1 like '%${searchKeyword}%'
+        </if>
         limit #{limitStart}, #{limitEnd}
     </select>
 
     <select id="findAllTeacherCount" resultType="int">
         SELECT COUNT(*)
         FROM teacher
+        WHERE 1 = 1
+        <if test = 'searchKeyword != null and !"".equals(searchKeyword) '>
+            AND
+            address1 like '%${searchKeyword}%'
+        </if>
     </select>
 
 

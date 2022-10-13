@@ -35,7 +35,9 @@ public class TeacherController {
 
     //메인
     @GetMapping("/index") //index?page=1,
-    public String main(ModelMap modelMap, @RequestParam(value = "page" , required = false) String page, @AuthenticationPrincipal Member member){
+    public String main(ModelMap modelMap, @RequestParam(value = "page" , required = false) String page,
+                                          @RequestParam(value = "searchKeyword" , required = false) String searchKeyword,
+                                          @AuthenticationPrincipal Member member){
         // 현재 페이지 번호
         int pageNo = page == null ? 1 : Integer.parseInt(page);
         // 페이징 LIMIT 시작 위치 계산
@@ -44,6 +46,7 @@ public class TeacherController {
         Map<String, Object> param = new HashMap<String, Object>();
         param.put("limitStart"  , limitStart);
         param.put("limitEnd"    , recordSize);
+        param.put("searchKeyword", searchKeyword);
 
         // 교사 리스트
         List<Teacher> teacherList = teacherService.getTeacherList(param);
@@ -88,6 +91,7 @@ public class TeacherController {
         modelMap.put("lastPageFirst"   , lastPageFirst);
         // 이전페이징에서 첫 페이지
         modelMap.put("firstPageFist"   , startPage-pageSize);
+        modelMap.put("searchKeyword"   , searchKeyword);
 
         return "index";
     }
