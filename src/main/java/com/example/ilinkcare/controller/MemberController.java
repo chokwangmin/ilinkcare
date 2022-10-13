@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,9 +23,10 @@ public class MemberController {
     private MemberServiceImp memberService;
 
     @PostMapping("/join")
-    public String MemberJoin(Member member){
+    public String MemberJoin(RedirectAttributes redirectAttributes, Member member){
         String RtnVal = "";
         RtnVal = memberService.MemberJoin(member);
+        redirectAttributes.addAttribute("resultMsg", RtnVal);
 
         return "redirect:/login";
     }

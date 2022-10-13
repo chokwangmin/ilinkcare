@@ -3,7 +3,7 @@
 <mapper namespace="com.example.ilinkcare.mapper.MemberMapper">
 
     <!--    고객 계정생성-->
-    <insert id="insertMember" parameterType="com.example.ilinkcare.domain.Member">
+    <update id="insertMember" parameterType="com.example.ilinkcare.domain.Member">
         INSERT INTO member ( user_id
                             ,user_name
                             ,password
@@ -34,7 +34,7 @@
                             ,#{update_dt}
                             ,#{update_by}
                 )
-    </insert>
+    </update>
 
     <select id="MemberSelect" parameterType="java.util.Map" resultType="com.example.ilinkcare.domain.Member">
         select *
@@ -73,4 +73,11 @@
         WHERE
             user_id = #{userId}
     </select>
+
+    <select id="dupUserId" parameterType="com.example.ilinkcare.domain.Member" resultType="int">
+        select count(*)
+        from member
+        where user_id = #{user_id}
+    </select>
+
 </mapper>

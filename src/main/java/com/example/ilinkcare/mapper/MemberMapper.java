@@ -9,7 +9,7 @@ import java.util.Map;
 @Mapper
 public interface MemberMapper {
     // 고객 회원가입
-    String insertMember(Member member);
+    int insertMember(Member member);
 
     void updateMember(Member member);
 

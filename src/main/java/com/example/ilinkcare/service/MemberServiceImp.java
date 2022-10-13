@@ -36,7 +36,12 @@ public class MemberServiceImp implements MemberService, UserDetailsService {
              return rtnVal;
         }
 
-        memberMapper.insertMember(member);
+        int result = memberMapper.insertMember(member);
+        if (result > 0) {
+            rtnVal = "회원가입이 완료되었습니다.";
+        } else {
+            rtnVal = "회원가입 도중 오류가 발생하였습니다.";
+        }
 
         return rtnVal;
     }

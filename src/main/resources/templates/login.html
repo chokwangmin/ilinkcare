@@ -16,6 +16,17 @@
 <body>
 <!-- Navigation-->
 <div th:insert="~{/header :: headerFragment}"></div>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+                var resultMsg = /*[[${resultMsg}]]*/ 'default';
+            /*]]>*/
+
+            history.pushState(null, '회원가입', 'login');
+            
+            if (resultMsg != null && resultMsg != '') {
+                alert(resultMsg);
+            }
+        </script>
         <!-- Section-->
         <section class="py-6">
 
