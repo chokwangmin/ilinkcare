@@ -6,7 +6,9 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     username: teamcle
     password: Tricycle1!@
-    url: jdbc:mariadb://175.195.148.148:3306/ilinkcare
+#    url: jdbc:mariadb://175.195.148.148:3306/ilinkcare
+#    url: jdbc:mariadb://clride.duckdns.org:3306/ilinkcare
+    url: jdbc:mariadb://teamcler.asuscomm.com:3306/ilinkcare
     freemaker:
     cache: false
     devtools:
